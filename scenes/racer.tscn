@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://uliwcww4icq5" path="res://scenes/vehicle.tscn" id="1_b4x64"]
 [ext_resource type="Script" path="res://scripts/racer.gd" id="1_iypdr"]
 [ext_resource type="PackedScene" uid="uid://by8w4qdkfrt2r" path="res://scenes/target.tscn" id="2_0sto5"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xaw88"]
+[ext_resource type="Texture2D" uid="uid://bqpi82ahkv2gf" path="res://assets/vector.png" id="4_vhq80"]
 
 [node name="Racer" type="Node2D"]
 script = ExtResource("1_iypdr")
@@ -14,6 +13,5 @@ script = ExtResource("1_iypdr")
 [node name="Target" parent="." instance=ExtResource("2_0sto5")]
 
 [node name="VelocityVector" type="Sprite2D" parent="."]
-position = Vector2(138, 111)
-scale = Vector2(4.98504, 30.818)
-texture = SubResource("CanvasTexture_xaw88")
+scale = Vector2(0.013, 0.02)
+texture = ExtResource("4_vhq80")

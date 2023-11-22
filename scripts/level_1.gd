@@ -14,7 +14,7 @@ var y_change = 0
 var colors = [Color.BLUE, Color.RED, Color.BLACK, Color.DARK_GREEN]
 
 func _ready():
-	racers = racer_spawner.spawn_racers(2, spawn_point.global_position)
+	racers = racer_spawner.spawn_racers(1, spawn_point.global_position)
 	var i = 0
 	for racer in racers:
 		add_child(racer)

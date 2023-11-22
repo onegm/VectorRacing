@@ -19,6 +19,7 @@ func update_target_position(dx:int, dy:int):
 func move():
 	vehicle.move_to_target(target.global_position)
 	target.set_anchor(target.global_position + vehicle.velocity)
+	velocity_vector.set_global_position(target.global_position)
 
 func reset():
 	vehicle.set_velocity(Vector2.ZERO)
