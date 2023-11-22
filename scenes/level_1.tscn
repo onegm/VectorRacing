@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cskmwj7jj750b"]
+
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_qgwck"]
+[ext_resource type="PackedScene" uid="uid://b01sq5q2ho1ii" path="res://scenes/track.tscn" id="2_oldmr"]
+[ext_resource type="PackedScene" uid="uid://ci2moriwd6kfu" path="res://scenes/racer_spawner.tscn" id="3_kbfkj"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_qgwck")
+
+[node name="Track" parent="." instance=ExtResource("2_oldmr")]
+position = Vector2(572, 317)
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(308, 541)
+
+[node name="RacerSpawner" parent="." instance=ExtResource("3_kbfkj")]

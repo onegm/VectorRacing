@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci2moriwd6kfu"]
+
+[ext_resource type="Script" path="res://scripts/racer_spawner.gd" id="1_ir7r2"]
+[ext_resource type="PackedScene" uid="uid://k168nlrpoctb" path="res://scenes/racer.tscn" id="2_igla8"]
+
+[node name="RacerSpawner" type="Node2D"]
+script = ExtResource("1_ir7r2")
+racer_scene = ExtResource("2_igla8")
+
+[node name="OnePlayer" type="Node2D" parent="."]
+position = Vector2(456, 225)
+
+[node name="SpawnPoint" type="Marker2D" parent="OnePlayer"]
+
+[node name="TwoPlayers" type="Node2D" parent="."]
+position = Vector2(178, 225)
+
+[node name="SpawnPoint1" type="Marker2D" parent="TwoPlayers"]
+position = Vector2(0, -22)
+
+[node name="SpawnPoint2" type="Marker2D" parent="TwoPlayers"]
+position = Vector2(0, 22)
