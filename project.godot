@@ -55,4 +55,4 @@ reset={
 [layer_names]
 
 2d_physics/layer_1="wall"
-2d_physics/layer_2="cars"
+2d_physics/layer_2="racers"

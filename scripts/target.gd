@@ -1,20 +1,22 @@
 extends Node2D
 
 @onready var tile_size = Game.TILE_SIZE
-@onready var anchor : Vector2 = global_position
-@onready var previous_anchor_position : Vector2 = global_position
-@onready var sprite = $TargetSprite
+@onready var target_sprite = $TargetSprite
+@onready var anchor_sprite = $AnchorSprite
 
-func update_position(dx:int, dy:int):
-	global_position = anchor + Vector2(dx*tile_size, dy*tile_size)
+func update_target_position(new_position : Vector2):
+	target_sprite.position = new_position
 
 func set_anchor(new_position : Vector2):
-	previous_anchor_position = anchor
-	anchor = new_position
-	update_position(0, 0)
+	position = new_position
+	update_target_position(Vector2.ZERO)
 
 func get_anchor():
-	return anchor
+	return position
+	
+func get_target():
+	return target_sprite.global_position
 
 func set_color(color : Color):
-	sprite.set_modulate(color)
+	target_sprite.set_modulate(color)
+	anchor_sprite.set_modulate(Color.CORAL)

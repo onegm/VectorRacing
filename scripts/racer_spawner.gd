@@ -15,12 +15,12 @@ var spawn_points
 #		print(racer.vehicle.global_position)
 #		print(racer.target_marker.global_position)
 
-func spawn_racers(num : int, position : Vector2):
+func spawn_racers(num : int, spawn_position: Vector2):
 	if num == 1:
 		spawn_points = $OnePlayer
 	else:
 		spawn_points = $TwoPlayers
-	set_spawn_position_center(position)
+	set_spawn_position_center(spawn_position)
 	for i in num:
 		var spawn_point = spawn_points.get_children()[i]
 		var racer_instance = racer_scene.instantiate()
@@ -28,8 +28,6 @@ func spawn_racers(num : int, position : Vector2):
 		racers.append(racer_instance)
 	return racers
 
-func set_spawn_position_center(position : Vector2):
-	spawn_points.set_global_position(position)
-#	for point in spawn_points.get_children():
-#		point.set_global_position(position)
+func set_spawn_position_center(spawn_position: Vector2):
+	spawn_points.set_global_position(spawn_position)
 	

@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://k168nlrpoctb"]
+[gd_scene load_steps=6 format=3 uid="uid://k168nlrpoctb"]
 
-[ext_resource type="PackedScene" uid="uid://uliwcww4icq5" path="res://scenes/vehicle.tscn" id="1_b4x64"]
 [ext_resource type="Script" path="res://scripts/racer.gd" id="1_iypdr"]
 [ext_resource type="PackedScene" uid="uid://by8w4qdkfrt2r" path="res://scenes/target.tscn" id="2_0sto5"]
-[ext_resource type="Texture2D" uid="uid://bqpi82ahkv2gf" path="res://assets/vector.png" id="4_vhq80"]
+[ext_resource type="PackedScene" uid="uid://cn3ke47vqw46b" path="res://scenes/motion_vectors.tscn" id="5_5u2gt"]
 
-[node name="Racer" type="Node2D"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_rtcxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v26bx"]
+size = Vector2(22, 20)
+
+[node name="Racer" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_iypdr")
 
-[node name="Vehicle" parent="." instance=ExtResource("1_b4x64")]
+[node name="Vehicle" type="Sprite2D" parent="."]
+scale = Vector2(22, 20)
+texture = SubResource("CanvasTexture_rtcxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v26bx")
 
 [node name="Target" parent="." instance=ExtResource("2_0sto5")]
+visible = false
 
-[node name="VelocityVector" type="Sprite2D" parent="."]
-scale = Vector2(0.013, 0.02)
-texture = ExtResource("4_vhq80")
+[node name="MotionVectors" parent="." instance=ExtResource("5_5u2gt")]

@@ -9,7 +9,7 @@ func _ready():
 	inner_track.body_entered.connect(on_track_exited)
 	outer_track.body_exited.connect(on_track_exited)
 	
-func on_track_exited(_body):
-	track_exited.emit()
+func on_track_exited(body):
+	track_exited.emit(body)
 	
 
