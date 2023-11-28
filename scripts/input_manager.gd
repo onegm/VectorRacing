@@ -1,12 +1,13 @@
 extends Node2D
 
-@onready var keyboard_mode = Game.input_mode
+@onready var input_mode = Game.input_mode
+
 var x_change = 0
 var y_change = 0
 var result = []
 
 func read_input(racer_global_position : Vector2):
-	if keyboard_mode:
+	if input_mode == Game.INPUT_METHOD.KEYBOARD:
 		read_keyboard_input()
 	else:
 		read_mouse_input(racer_global_position)
@@ -53,3 +54,5 @@ func get_y_input():
 func reset():
 	x_change = 0
 	y_change = 0
+	
+

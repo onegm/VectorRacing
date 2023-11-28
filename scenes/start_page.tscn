@@ -17,14 +17,18 @@ offset_right = 1151.0
 offset_bottom = 647.0
 theme = SubResource("Theme_ps4lq")
 
-[node name="TailToTailButton" type="CheckButton" parent="Control"]
+[node name="VectorModeButton" type="OptionButton" parent="Control"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 191.0
-offset_right = 452.0
-offset_bottom = 259.0
-button_pressed = true
-text = "Tail to tail vectors"
+offset_left = 158.0
+offset_top = 207.0
+offset_right = 430.0
+offset_bottom = 270.0
+item_count = 2
+selected = 0
+popup/item_0/text = "Tail to tail"
+popup/item_0/id = 0
+popup/item_1/text = "Head to tail"
+popup/item_1/id = 1
 
 [node name="NumPlayersButton" type="OptionButton" parent="Control"]
 layout_mode = 0
@@ -37,6 +41,19 @@ selected = 1
 popup/item_0/text = "One Player"
 popup/item_0/id = 0
 popup/item_1/text = "Two Players"
+popup/item_1/id = 1
+
+[node name="InputMethodButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 367.0
+offset_right = 432.0
+offset_bottom = 430.0
+item_count = 2
+selected = 0
+popup/item_0/text = "Keyboard"
+popup/item_0/id = 0
+popup/item_1/text = "Mouse"
 popup/item_1/id = 1
 
 [node name="StartButton" type="Button" parent="Control"]
