@@ -6,11 +6,20 @@ var x_change = 0
 var y_change = 0
 var result = []
 
+signal next_pressed
+signal reset_pressed
+
 func read_input(racer_global_position : Vector2):
 	if input_mode == Game.INPUT_METHOD.KEYBOARD:
 		read_keyboard_input()
 	else:
 		read_mouse_input(racer_global_position)
+	
+	if Input.is_action_just_pressed("next_move"):
+		next_pressed.emit()
+
+	if Input.is_action_just_pressed("reset"):
+		reset_pressed.emit()
 
 func read_mouse_input(racer_global_position):
 	var relative_position = get_global_mouse_position() - racer_global_position

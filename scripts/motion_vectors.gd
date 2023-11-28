@@ -40,3 +40,4 @@ func redraw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO
 	
 func reset():
 	set_new_velocity(Vector2.ZERO)
+	set_new_acceleration(Vector2.ZERO)
