@@ -5,7 +5,7 @@ var acceleration : Vector2 = Vector2.ZERO
 
 const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
-@onready var is_tail_to_tail = Game.tail_to_tail_mode 
+@onready var vector_mode = Game.vector_mode 
 
 func set_new_velocity(new_velocity : Vector2):
 	velocity = new_velocity
@@ -20,7 +20,7 @@ func _draw():
 	redraw_vector(velocity, Color.WHITE)
 	
 	var offset = Vector2.ZERO
-	if !is_tail_to_tail:
+	if vector_mode == Game.VECTOR_MODE.HEAD_TO_TAIL:
 		offset = velocity
 	redraw_vector(acceleration, Color.CORAL, offset)
 

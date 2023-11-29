@@ -1,20 +1,20 @@
 extends Node
 
-const TILE_SIZE = 22.0
-var tail_to_tail_mode = true
-var num_of_players = 2
-var input_mode = true
-var current_level : PackedScene
+const TILE_SIZE = 22
+enum INPUT_METHOD {KEYBOARD, MOUSE}
+enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 
-@onready var main_menu : PackedScene = load("res://scenes/start_page.tscn")
+var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
+var num_of_players = 2
+var input_mode : INPUT_METHOD = INPUT_METHOD.KEYBOARD
+
 
 func set_num_players(num : int):
 	num_of_players = num
 	print(num)
 	
-func set_tail_to_tail_mode(mode : bool):
-	tail_to_tail_mode = mode
-	print(mode)
+func set_vector_mode(mode : VECTOR_MODE):
+	vector_mode = mode
 
-func set_input_mode(mode : bool):
+func set_input_method(mode : INPUT_METHOD):
 	input_mode = mode
