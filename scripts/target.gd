@@ -5,6 +5,7 @@ extends Node2D
 @onready var anchor_sprite = $AnchorSprite
 
 func update_target_position(new_position : Vector2):
+	position = new_position
 	target_sprite.position = new_position
 
 func set_anchor(new_position : Vector2):

@@ -10,16 +10,13 @@ var racers
 var current_racer
 var current_racer_idx = 0
 
-var colors = [Color.BLUE, Color.RED, Color.BLACK, Color.DARK_GREEN]
+#var colors = [Color.BLUE, Color.RED, Color.BLACK, Color.DARK_GREEN]
 
 func _ready():
 	racers = racer_spawner.spawn_racers(num_of_racers, spawn_position, track.spawn_rotation)
-	var i = 0
+
 	for racer in racers:
 		add_child(racer)
-		racer.set_color(colors[i])
-		racer.set_name(str(colors[i]))
-		i+=1
 		
 	current_racer = racers[current_racer_idx]
 	

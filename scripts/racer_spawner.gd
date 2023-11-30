@@ -5,6 +5,7 @@ extends Node2D
 
 var racers = []
 var spawn_points
+var colors = [Color.BLUE, Color.RED, Color.BLACK, Color.DARK_GREEN]
 
 #func _ready():
 #	spawn_racers()
@@ -24,9 +25,12 @@ func spawn_racers(num : int, spawn_position: Vector2, spawn_rotation : float):
 	set_spawn_rotation(spawn_rotation)
 	for i in num:
 		var spawn_point = spawn_points.get_children()[i]
-		var racer_instance = racer_scene.instantiate()
-		racer_instance.set_initial_position(spawn_point.global_position)
-		racers.append(racer_instance)
+		var racer = racer_scene.instantiate()
+		racer.set_initial_position(spawn_point.global_position)
+		racer.set_color(colors[i])
+		racer.set_name(str(colors[i].name))
+		
+		racers.append(racer)
 	return racers
 
 func set_spawn_position_center(spawn_position: Vector2):

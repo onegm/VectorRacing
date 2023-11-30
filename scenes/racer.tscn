@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://k168nlrpoctb"]
+[gd_scene load_steps=5 format=3 uid="uid://k168nlrpoctb"]
 
 [ext_resource type="Script" path="res://scripts/racer.gd" id="1_iypdr"]
-[ext_resource type="PackedScene" uid="uid://by8w4qdkfrt2r" path="res://scenes/target.tscn" id="2_0sto5"]
 [ext_resource type="PackedScene" uid="uid://cn3ke47vqw46b" path="res://scenes/motion_vectors.tscn" id="5_5u2gt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rtcxq"]
@@ -19,8 +18,5 @@ texture = SubResource("CanvasTexture_rtcxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v26bx")
-
-[node name="Target" parent="." instance=ExtResource("2_0sto5")]
-visible = false
 
 [node name="MotionVectors" parent="." instance=ExtResource("5_5u2gt")]
