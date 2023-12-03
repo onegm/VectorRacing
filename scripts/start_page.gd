@@ -12,7 +12,6 @@ func _ready():
 	input_method_button.item_selected.connect(on_input_method_selected)
 	level_button.item_selected.connect(on_level_selected)
 	start_button.pressed.connect(on_start_button_pressed)
-	
 
 func on_vector_mode_selected(mode_idx):
 	if(mode_idx == 0):
@@ -22,7 +21,6 @@ func on_vector_mode_selected(mode_idx):
 	else:
 		push_error("Invalid vector mode selected")
 		
-
 func on_num_players_selected(index):
 	Game.set_num_players(index+1)
 

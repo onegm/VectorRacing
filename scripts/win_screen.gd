@@ -14,8 +14,22 @@ func on_replay_pressed():
 func on_menu_pressed():
 	get_tree().change_scene_to_packed(Game.main_menu)
 	
-func set_winner(winner : Racer):
-	if winner != null:
-		win_label.set_text(winner.name + " Wins!!")
+func set_winner(winners : Array):
+	var text = ""
+	if winners.size() > 1:
+		text = "It's a tie between: "
+		if winners.size() == 2:
+			text += winners[0].name + " and " + winners[1].name
+		else:
+			for i in winners.size():
+				text += winners[i].name
+				if i < winners.size() - 2:
+					text += ", "
+				elif i < winners.size() - 1:
+					text += ", and "
+	elif winners.size() == 1:
+		text = winners[0].name + " Wins!!"
 	else:
-		win_label.set_text("It's a tie!!")
+		text = "No winners..."
+		
+	win_label.set_text(text)

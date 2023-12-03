@@ -8,7 +8,7 @@ script = ExtResource("1_ir7r2")
 racer_scene = ExtResource("2_igla8")
 
 [node name="OnePlayer" type="Node2D" parent="."]
-position = Vector2(456, 225)
+position = Vector2(70, 225)
 
 [node name="SpawnPoint" type="Marker2D" parent="OnePlayer"]
 
@@ -19,4 +19,15 @@ position = Vector2(178, 225)
 position = Vector2(0, -22)
 
 [node name="SpawnPoint2" type="Marker2D" parent="TwoPlayers"]
+position = Vector2(0, 22)
+
+[node name="ThreePlayers" type="Node2D" parent="."]
+position = Vector2(268, 225)
+
+[node name="SpawnPoint1" type="Marker2D" parent="ThreePlayers"]
+position = Vector2(0, -22)
+
+[node name="SpawnPoint2" type="Marker2D" parent="ThreePlayers"]
+
+[node name="SpawnPoint3" type="Marker2D" parent="ThreePlayers"]
 position = Vector2(0, 22)
