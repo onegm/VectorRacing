@@ -10,6 +10,7 @@ var is_active = false
 
 var initial_position
 var vehicle_color : Color
+var moves = 0
 
 func _ready():
 	colorize()
@@ -37,6 +38,8 @@ func move():
 	if is_active:
 		return
 		
+	moves += 1
+	print(moves)
 	velocity = current_target - global_position
 	motion_vectors.set_new_velocity(velocity)
 	is_active = true
@@ -50,7 +53,12 @@ func reset(new_position : Vector2 = initial_position):
 
 func crash_reset():
 	var pre_crash_position = global_position - velocity
+	moves += 5
+	print(moves)
 	reset(pre_crash_position)
+	
+func get_num_moves():
+	return moves
 	
 func set_color(color : Color):
 	vehicle_color = color

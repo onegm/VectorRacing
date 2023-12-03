@@ -10,6 +10,7 @@ var input_mode : INPUT_METHOD = INPUT_METHOD.KEYBOARD
 
 @onready var current_level : PackedScene = load("res://scenes/level_0.tscn")
 @onready var main_menu : PackedScene = load("res://scenes/start_page.tscn")
+@onready var win_screen : PackedScene = load("res://scenes/win_screen.tscn")
 
 func set_num_players(num : int):
 	num_of_players = num
