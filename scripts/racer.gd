@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Racer
 
 @onready var vehicle = $Vehicle
-@onready var motion_vectors = $MotionVectors
 @onready var current_target = global_position
 @onready var temp_target = global_position
 
@@ -12,6 +11,13 @@ var is_in_motion = false
 var initial_position
 var vehicle_color : Color
 var moves = 0
+
+signal started_moving(move_velocity : Vector2)
+signal updated_target(target_change_vector : Vector2)
+signal crashed
+signal resetted
+signal my_turn
+signal not_my_turn
 
 func _ready():
 	colorize()
@@ -23,7 +29,7 @@ func _physics_process(delta):
 		global_position += velocity*delta
 		if distance_from_target < 5:
 			global_position = current_target
-			is_in_motion = false
+			stop_moving()
 
 func set_initial_position(new_position : Vector2 = Vector2.ZERO):
 	initial_position = new_position
@@ -33,7 +39,7 @@ func set_initial_position(new_position : Vector2 = Vector2.ZERO):
 func update_target_position(dx:float, dy:float):
 	var target_change_vector = Vector2(dx*tile_size, dy*tile_size)
 	temp_target = global_position + velocity + target_change_vector
-	motion_vectors.set_new_acceleration(target_change_vector)
+	updated_target.emit(target_change_vector)
 	
 func move():
 	if is_in_motion:
@@ -42,22 +48,27 @@ func move():
 	moves += 1
 	current_target = temp_target
 	velocity = current_target - global_position
-	motion_vectors.set_new_velocity(velocity)
-	is_in_motion = true
+	start_moving()
 
 func reset(new_position : Vector2 = initial_position):
 	global_position = new_position
 	velocity = Vector2.ZERO
 	current_target = new_position
 	temp_target = new_position
-	motion_vectors.reset()
-	is_in_motion = false
+	stop_moving()
 
 func crash_reset():
 	var pre_crash_position = current_target - velocity
 	moves += 5
-	print(moves)
 	reset(pre_crash_position)
+	crashed.emit()
+	
+func start_moving():
+	is_in_motion = true
+	started_moving.emit(velocity)
+	
+func stop_moving():
+	is_in_motion = false
 
 func get_moves():
 	return moves

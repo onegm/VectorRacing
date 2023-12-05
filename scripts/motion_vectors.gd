@@ -1,11 +1,21 @@
 extends Node2D
 
+var racer : Racer
 var velocity : Vector2 = Vector2.ZERO
 var acceleration : Vector2 = Vector2.ZERO
 
 const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
-@onready var vector_mode = Game.vector_mode 
+@onready var vector_mode = Game.vector_mode
+
+func set_racer(new_racer : Racer):
+	racer = new_racer
+	racer.started_moving.connect(set_new_velocity)
+	racer.updated_target.connect(set_new_acceleration)
+	racer.crashed.connect(reset)
+	racer.resetted.connect(reset)
+	
+	racer.add_child(self)
 
 func set_new_velocity(new_velocity : Vector2):
 	velocity = new_velocity
