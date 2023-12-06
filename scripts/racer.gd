@@ -66,21 +66,27 @@ func move():
 	moves += 1
 	current_target = temp_target
 	velocity = current_target - global_position
+	rotate_sprite()
 	start_moving()
 
-func reset(new_position : Vector2 = initial_position):
+func reset():
+	moves = 0
+	reset_to_position(initial_position)
+	resetted.emit()
+
+func crash_reset():
+	var pre_crash_position = current_target - velocity
+	moves += 5
+	reset_to_position(pre_crash_position)
+	crashed.emit()
+	
+func reset_to_position(new_position : Vector2):
 	global_position = new_position
 	velocity = Vector2.ZERO
 	current_target = new_position
 	temp_target = new_position
 	stop_moving()
 
-func crash_reset():
-	var pre_crash_position = current_target - velocity
-	moves += 5
-	reset(pre_crash_position)
-	crashed.emit()
-	
 func start_moving():
 	is_in_motion = true
 	started_moving.emit(velocity)
@@ -88,6 +94,9 @@ func start_moving():
 func stop_moving():
 	is_in_motion = false
 	my_turn_ended.emit()
+
+func rotate_sprite():
+	vehicle.look_at(global_position + velocity)
 
 func get_moves():
 	return moves

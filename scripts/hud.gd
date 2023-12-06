@@ -12,6 +12,7 @@ func set_racer(new_racer : Racer):
 	racer.crashed.connect(update_label)
 	racer.my_turn_started.connect(on_my_turn_started)
 	racer.my_turn_ended.connect(on_my_turn_ended)
+	racer.resetted.connect(update_label)
 	
 
 func update_label(_velocity = Vector2.ZERO):

@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b01sq5q2ho1ii"]
+[gd_scene load_steps=6 format=3 uid="uid://b01sq5q2ho1ii"]
 
 [ext_resource type="Script" path="res://scripts/track.gd" id="1_1gmlj"]
 [ext_resource type="Texture2D" uid="uid://ceujsep1jwmmm" path="res://assets/level_1_track.png" id="2_jeooc"]
+[ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://assets/checkered line.png" id="3_ty071"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2fb8"]
 radius = 212.0
 height = 1074.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnk"]
-size = Vector2(41.5, 123)
+size = Vector2(11.75, 123)
 
 [node name="Track1" type="Node2D"]
 script = ExtResource("1_1gmlj")
@@ -40,7 +41,14 @@ position = Vector2(414, 499)
 collision_mask = 2
 
 [node name="WinShape" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(-129.875, 2)
 shape = SubResource("RectangleShape2D_m7hnk")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(304, 497)
+position = Vector2(312, 497)
+
+[node name="CheckeredLine" type="Sprite2D" parent="."]
+position = Vector2(283, 498)
+rotation = 1.5708
+scale = Vector2(0.142504, 0.12555)
+texture = ExtResource("3_ty071")

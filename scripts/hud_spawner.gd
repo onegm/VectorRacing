@@ -11,6 +11,6 @@ func _ready():
 func on_racer_spawned(racer : Racer):
 	var hud = hud_scene.instantiate()
 	hud.set_racer(racer)
-	hud.set_position(Vector2(300*num_huds, 0))
+	hud.set_position(Vector2(150 + 300*num_huds, 0))
 	add_child(hud)
 	num_huds += 1

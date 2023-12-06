@@ -103,3 +103,4 @@ func reset():
 		racer.reset()
 	current_racer_idx = 0
 	current_racer = racers[0]
+	current_racer.my_turn_started.emit()
