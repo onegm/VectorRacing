@@ -12,15 +12,24 @@ var initial_position
 var vehicle_color : Color
 var moves = 0
 
+const HIGH_ALPHA = 1.0
+const LOW_ALPHA = 0.6
+const HIGH_Z_IDX = 1
+const LOW_Z_IDX = 0
+
 signal started_moving(move_velocity : Vector2)
 signal updated_target(target_change_vector : Vector2)
 signal crashed
 signal resetted
-signal my_turn
-signal not_my_turn
+signal my_turn_started
+signal my_turn_ended
 
 func _ready():
 	colorize()
+	my_turn_started.connect(on_my_turn_started)
+	my_turn_ended.connect(on_my_turn_ended)
+	modulate.a = LOW_ALPHA
+	
 
 func _physics_process(delta):
 	var distance_from_target = (current_target - global_position).length()
@@ -40,6 +49,15 @@ func update_target_position(dx:float, dy:float):
 	var target_change_vector = Vector2(dx*tile_size, dy*tile_size)
 	temp_target = global_position + velocity + target_change_vector
 	updated_target.emit(target_change_vector)
+
+func on_my_turn_started():
+	modulate.a = HIGH_ALPHA
+	set_z_index(HIGH_Z_IDX)
+	
+
+func on_my_turn_ended():
+	modulate.a = LOW_ALPHA
+	set_z_index(LOW_Z_IDX)
 	
 func move():
 	if is_in_motion:
@@ -69,6 +87,7 @@ func start_moving():
 	
 func stop_moving():
 	is_in_motion = false
+	my_turn_ended.emit()
 
 func get_moves():
 	return moves

@@ -3,5 +3,4 @@
 [ext_resource type="Script" path="res://scripts/motion_vectors.gd" id="1_hn63u"]
 
 [node name="MotionVectors" type="Node2D"]
-z_index = 1
 script = ExtResource("1_hn63u")

@@ -27,7 +27,7 @@ func _ready():
 	
 	racer_spawner.spawn_racers(track.get_spawn_point(), track.spawn_rotation)
 	current_racer = racers[current_racer_idx]
-	current_racer.my_turn.emit()
+	current_racer.my_turn_started.emit()
 	
 	track.track_exited.connect(on_track_exited)
 	track.racer_won.connect(on_racer_finished)
@@ -80,12 +80,17 @@ func determine_winner():
 	return winners
 
 func update_current_racer():
-	current_racer.not_my_turn.emit()
+	await current_racer.my_turn_ended
+	
+	if racers.is_empty():
+		end_race()
+		return
+	
 	current_racer_idx += 1
 	if(current_racer_idx >= racers.size()):
 		current_racer_idx = 0
 	current_racer = racers[current_racer_idx]
-	current_racer.my_turn.emit()
+	current_racer.my_turn_started.emit()
 
 func any_racer_in_motion() -> bool:
 	return racers.any(func(racer): return racer.is_in_motion)

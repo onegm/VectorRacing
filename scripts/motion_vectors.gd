@@ -4,6 +4,10 @@ var racer : Racer
 var velocity : Vector2 = Vector2.ZERO
 var acceleration : Vector2 = Vector2.ZERO
 
+
+var velocity_color = Color.WHITE
+var acceleration_color = Color.CORAL
+
 const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
 @onready var vector_mode = Game.vector_mode
@@ -27,16 +31,17 @@ func set_new_acceleration(new_acceleration : Vector2):
 	queue_redraw()
 
 func _draw():
-	redraw_vector(velocity, Color.WHITE)
+	redraw_vector(velocity, velocity_color)
 	
 	var offset = Vector2.ZERO
 	if vector_mode == Game.VECTOR_MODE.HEAD_TO_TAIL:
 		offset = velocity
-	redraw_vector(acceleration, Color.CORAL, offset)
+	redraw_vector(acceleration, acceleration_color, offset)
 
 	
 func redraw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO):
 	var arrow_head = PackedVector2Array()
+	
 	var arrow_head_vector = end - end.normalized()*ARROW_HEAD_SCALE
 	var arrow_head_rotation_angle = 2*PI/end.length()
 	var head_point2 = (arrow_head_vector).rotated(arrow_head_rotation_angle)
@@ -45,7 +50,9 @@ func redraw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO
 	arrow_head.append(head_point2 + offset)
 	arrow_head.append(head_point3 + offset)
 	
-	draw_line(offset, end + offset, color, 4.0)
+	var arrow_head_length = end - head_point2.project(end)
+	
+	draw_line(offset, end + offset - arrow_head_length, color, 4.0)
 	draw_colored_polygon(arrow_head, color)
 	
 func reset():

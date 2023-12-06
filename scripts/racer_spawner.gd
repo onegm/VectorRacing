@@ -5,8 +5,8 @@ extends Node2D
 
 var racers = []
 var spawn_points
-var colors = [Color.BLUE, Color.RED, Color.BLACK, Color.DARK_GREEN]
-var names = ["Blue", "Red", "Black", "Green"]
+var colors = [Color.BLUE, Color.RED, Color.PURPLE, Color.DARK_GREEN]
+var names = ["Blue", "Red", "Purple", "Green"]
 
 func spawn_racers(spawn_position: Vector2, spawn_rotation : float):
 	set_spawn_points()
