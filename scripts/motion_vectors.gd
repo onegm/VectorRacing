@@ -12,6 +12,9 @@ const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
 @onready var vector_mode = Game.vector_mode
 
+func _ready():
+	SignalBus.vector_mode_toggled.connect(func(mode): vector_mode = mode)
+
 func set_racer(new_racer : Racer):
 	racer = new_racer
 	racer.started_moving.connect(set_new_velocity)
@@ -31,15 +34,16 @@ func set_new_acceleration(new_acceleration : Vector2):
 	queue_redraw()
 
 func _draw():
-	redraw_vector(velocity, velocity_color)
+	draw_vector(velocity, velocity_color)
 	
 	var offset = Vector2.ZERO
 	if vector_mode == Game.VECTOR_MODE.HEAD_TO_TAIL:
+		draw_vector(velocity + acceleration, Color.AQUA)
 		offset = velocity
-	redraw_vector(acceleration, acceleration_color, offset)
+	draw_vector(acceleration, acceleration_color, offset)
 
 	
-func redraw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO):
+func draw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO):
 	var arrow_head = PackedVector2Array()
 	
 	var arrow_head_vector = end - end.normalized()*ARROW_HEAD_SCALE

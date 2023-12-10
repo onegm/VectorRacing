@@ -8,6 +8,7 @@ class_name Racer
 var tile_size = Game.TILE_SIZE
 
 var is_in_motion = false
+var active = true
 var initial_position
 var vehicle_color : Color
 var moves = 0
@@ -23,11 +24,13 @@ signal crashed
 signal resetted
 signal my_turn_started
 signal my_turn_ended
+signal finished
 
 func _ready():
 	colorize()
 	my_turn_started.connect(on_my_turn_started)
 	my_turn_ended.connect(on_my_turn_ended)
+	finished.connect(on_finished_race)
 	modulate.a = LOW_ALPHA
 	
 
@@ -54,15 +57,16 @@ func on_my_turn_started():
 	modulate.a = HIGH_ALPHA
 	set_z_index(HIGH_Z_IDX)
 	
-
 func on_my_turn_ended():
 	modulate.a = LOW_ALPHA
 	set_z_index(LOW_Z_IDX)
-	
+
+func on_finished_race():
+	deactivate()
+
 func move():
 	if is_in_motion:
 		return
-		
 	moves += 1
 	current_target = temp_target
 	velocity = current_target - global_position
@@ -71,6 +75,7 @@ func move():
 
 func reset():
 	moves = 0
+	active = true
 	reset_to_position(initial_position)
 	resetted.emit()
 
@@ -100,9 +105,16 @@ func rotate_sprite():
 
 func get_moves():
 	return moves
+
+func is_active():
+	return active
+
+func deactivate():
+	active = false
 	
 func set_color(color : Color):
 	vehicle_color = color
 
 func colorize():
 	vehicle.set_modulate(vehicle_color)
+

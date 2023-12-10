@@ -1,14 +1,17 @@
 extends Node2D
+class_name Level
 
 @export var ui_scene : PackedScene = preload("res://scenes/ui/ui.tscn")
 @export var racer_spawner_scene : PackedScene = preload("res://scenes/racer_spawner.tscn")
 @export var input_manager_scene : PackedScene = preload("res://scenes/input_manager.tscn")
 @export var track_scene : PackedScene
+@export var camera_scene : PackedScene = preload("res://scenes/camera_2d.tscn")
 
 @onready var ui = ui_scene.instantiate()
 @onready var racer_spawner = racer_spawner_scene.instantiate()
 @onready var input_manager = input_manager_scene.instantiate()
 @onready var track = track_scene.instantiate()
+@onready var camera = camera_scene.instantiate()
 
 var racers = []
 var current_racer
@@ -24,16 +27,20 @@ func _ready():
 	add_child(track)
 	add_child(racer_spawner)
 	add_child(ui)
+	add_child(camera)
 	
 	racer_spawner.spawn_racers(track.get_spawn_point(), track.spawn_rotation)
 	current_racer = racers[current_racer_idx]
 	current_racer.my_turn_started.emit()
+	
+#	camera.follow(racers)
 	
 	track.track_exited.connect(on_track_exited)
 	track.racer_won.connect(on_racer_finished)
 	input_manager.reset_pressed.connect(reset)
 	input_manager.next_pressed.connect(on_next_pressed)
 
+	
 func on_racer_spawned(racer : Racer):
 	racers.append(racer)
 
@@ -51,6 +58,7 @@ func on_next_pressed():
 		return
 	current_racer.move()
 	input_manager.reset()
+	await current_racer.my_turn_ended
 	update_current_racer()
 		
 func on_track_exited(racer : Racer):
@@ -58,8 +66,8 @@ func on_track_exited(racer : Racer):
 
 func on_racer_finished(racer : Racer):
 	finishers.append(racer)
-	racers.erase(racer)
-	current_racer_idx -= 1
+	await racer.my_turn_ended
+	racer.finished.emit()
 	update_min_moves()
 
 func update_min_moves():
@@ -80,23 +88,24 @@ func determine_winner():
 	return winners
 
 func update_current_racer():
-	await current_racer.my_turn_ended
-	
-	if racers.is_empty():
-		end_race()
+	if no_racers_active():
 		return
-	
 	current_racer_idx += 1
 	if(current_racer_idx >= racers.size()):
 		current_racer_idx = 0
 	current_racer = racers[current_racer_idx]
+	if(!current_racer.is_active()):
+		update_current_racer()
 	current_racer.my_turn_started.emit()
-
+	
 func any_racer_in_motion() -> bool:
 	return racers.any(func(racer): return racer.is_in_motion)
 
 func all_racers_above_min_moves():
 	return racers.all(func(racer) : return racer.get_moves() >= min_moves)
+
+func no_racers_active():
+	return racers.all(func(racer) : return !racer.is_active())
 
 func reset():
 	for racer in racers:

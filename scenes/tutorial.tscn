@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://by8ophib7u7fg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_737rd"]
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0, 0.658824, 0.109804, 1)
+scale = Vector2(32.6, 28.84)
+texture = SubResource("CanvasTexture_737rd")
+region_enabled = true
+region_rect = Rect2(0, 0, 600, 320)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 118.0
+offset_top = 232.0
+offset_right = 882.0
+offset_bottom = 258.0
+text = "A vector is a quantity that has both magnitude and direction. It is represented visually by an arrow."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1170.0
+offset_top = 213.0
+offset_right = 1805.0
+offset_bottom = 262.0
+text = "The arrow's length represents the magnitude of the vector while the direction the arrow is pointing represents the direction of the vector"
+fit_content = true
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 494.0
+offset_top = 372.0
+offset_right = 1112.0
+offset_bottom = 398.0
+text = "Control the vector with your arrow keys. Press the spacebar when you're ready. "
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 1470.0
+offset_top = 374.0
+offset_right = 2299.0
+offset_bottom = 426.0
+text = "Both the velocity and acceleration of an object can be represented by vectors. 
+In this case, the  white vector represents your velocity while the orange vector represents your acceleration"
