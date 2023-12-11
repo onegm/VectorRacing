@@ -17,6 +17,7 @@ func _ready():
 	
 func on_track_exited(racer : Racer):
 	track_exited.emit(racer)
+	RacerSignalBus.crashed.emit(racer)
 
 func on_win_area_entered(racer : Racer):
 	racer_won.emit(racer)

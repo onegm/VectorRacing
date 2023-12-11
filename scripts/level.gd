@@ -33,7 +33,7 @@ func _ready():
 	current_racer = racers[current_racer_idx]
 	current_racer.my_turn_started.emit()
 	
-#	camera.follow(racers)
+	camera.follow(racers)
 	
 	track.track_exited.connect(on_track_exited)
 	track.racer_won.connect(on_racer_finished)

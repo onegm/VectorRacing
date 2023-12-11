@@ -55,7 +55,6 @@ collision_mask = 2
 
 [node name="WinShape" type="CollisionShape2D" parent="WinArea"]
 rotation = 0.541209
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s8sbl")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -265,7 +264,6 @@ It's part of the tutorial!"
 [node name="VectorTrigger1" type="Area2D" parent="."]
 position = Vector2(1843.82, 1159.54)
 rotation = 1.19295
-scale = Vector2(1, 1)
 collision_mask = 2
 script = ExtResource("3_ahxos")
 
@@ -281,7 +279,6 @@ texture = SubResource("CanvasTexture_pyykg")
 [node name="VectorTrigger2" type="Area2D" parent="."]
 position = Vector2(951, 1035)
 rotation = -0.100103
-scale = Vector2(1, 1)
 collision_mask = 2
 script = ExtResource("3_ahxos")
 
