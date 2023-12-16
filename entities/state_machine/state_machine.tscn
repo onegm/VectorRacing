@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3nmfvrlvfdd6"]
+
+[ext_resource type="Script" path="res://entities/state_machine/state_machine.gd" id="1_0qgyx"]
+[ext_resource type="Script" path="res://entities/state_machine/idle.gd" id="2_xogif"]
+[ext_resource type="Script" path="res://entities/state_machine/active.gd" id="3_cyoiy"]
+[ext_resource type="Script" path="res://entities/state_machine/moving.gd" id="4_nphuy"]
+[ext_resource type="Script" path="res://entities/state_machine/crashing.gd" id="5_lebd8"]
+[ext_resource type="Script" path="res://entities/state_machine/finished.gd" id="6_ksivu"]
+
+[node name="StateMachine" type="Node" node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_0qgyx")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("active_state")]
+script = ExtResource("2_xogif")
+active_state = NodePath("../Active")
+
+[node name="Active" type="Node" parent="." node_paths=PackedStringArray("moving_state")]
+script = ExtResource("3_cyoiy")
+moving_state = NodePath("../Moving")
+
+[node name="Moving" type="Node" parent="." node_paths=PackedStringArray("idle_state", "crashing_state", "finished_state")]
+script = ExtResource("4_nphuy")
+idle_state = NodePath("../Idle")
+crashing_state = NodePath("../Crashing")
+finished_state = NodePath("../Finished")
+
+[node name="Crashing" type="Node" parent="." node_paths=PackedStringArray("idle_state")]
+script = ExtResource("5_lebd8")
+idle_state = NodePath("../Idle")
+
+[node name="Finished" type="Node" parent="."]
+script = ExtResource("6_ksivu")

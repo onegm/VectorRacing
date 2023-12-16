@@ -1,0 +1,297 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsw4a5unh172u"]
+
+[ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_v6ovy"]
+[ext_resource type="Texture2D" uid="uid://b1bkhntepnqb0" path="res://assets/tutorial_track_path.png" id="2_7avnt"]
+[ext_resource type="Script" path="res://entities/levels/vector_mode_trigger.gd" id="3_ahxos"]
+[ext_resource type="Texture2D" uid="uid://c7xudd7s31s63" path="res://assets/tutorial_borders.png" id="3_jsuow"]
+[ext_resource type="Texture2D" uid="uid://dfpelhk34e1dn" path="res://assets/tutorial_track_bg.png" id="4_x66h2"]
+[ext_resource type="Texture2D" uid="uid://dcl5r0nur2iqo" path="res://assets/tutorial_track_grid.png" id="6_0bi3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xtcv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8sbl"]
+size = Vector2(56.1029, 109.957)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvd5i"]
+size = Vector2(89.5882, 46.2383)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pyykg"]
+
+[node name="Track0" type="Node2D"]
+script = ExtResource("1_v6ovy")
+
+[node name="bg" type="Sprite2D" parent="."]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+position = Vector2(1152, 648)
+texture = ExtResource("4_x66h2")
+
+[node name="track" type="Sprite2D" parent="."]
+position = Vector2(1152, 648)
+texture = ExtResource("2_7avnt")
+
+[node name="borders" type="Sprite2D" parent="track"]
+position = Vector2(0, -1)
+texture = ExtResource("3_jsuow")
+
+[node name="InnerTrack" type="Area2D" parent="."]
+position = Vector2(222, 106)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerTrack"]
+shape = SubResource("RectangleShape2D_4xtcv")
+
+[node name="OuterTrack" type="Area2D" parent="."]
+position = Vector2(573, 322)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterTrack"]
+position = Vector2(579, 326)
+polygon = PackedVector2Array(424, -326, 424, -324.9, 461, -323.9, 461, -322.8, 520, -316.8, 520, -315.6, 586, -300.6, 586, -299.3, 629, -280.3, 629, -279.1, 643, -271.2, 643, -269.9, 665, -250.9, 665, -248.6, 683, -223.6, 683, -220.6, 689, -209.5, 689, -205.3, 694, -188.3, 694, -181, 700, 177, 698.5, 177, 693.6, 198, 692.1, 198, 682.4, 212.6, 742, 230.5, 742, 231.6, 815, 257.6, 815, 258.8, 887, 294.8, 887, 296, 905, 309, 905, 310.3, 929, 337.2, 929, 340.4, 938, 362.6, 938, 387, 936.7, 387, 934.7, 399, 933.3, 399, 925.3, 416, 923.9, 416, 895.9, 447, 893.7, 447, 837.7, 491, 835.6, 491, 780.6, 525, 778.5, 525, 730.5, 549, 727.4, 549, 672.4, 570, 668.4, 570, 611.2, 581, 577.9, 581, 566, 579.8, 566, 578.8, 545, 575.7, 545, 574.4, 517, 564.4, 517, 563.1, 486, 542.1, 486, 540.8, 464, 519.9, 464, 517.7, 435, 483.7, 435, 481.7, 357.9, 367, 357, 367, 329, 329, 328.1, 329, 300.1, 299, 298.2, 299, 289.2, 290, 287.4, 290, 262.4, 274, 259.7, 274, 239.7, 268, 221.9, 268, 126, 260.9, 126, 259.8, -52.3, 235, -62.1, 235, -104.2, 231, -111.9, 231, -143, 232.9, -143, 233.6, -162, 237.7, -170, 244, -170, 246.4, -172, 251.4, -172, 268.7, -154, 374.8, -154, 388, -153, 429, -154.3, 429, -160.3, 465, -161.5, 465, -165.5, 479, -166.8, 479, -179.8, 505, -181.1, 505, -204.1, 532, -206.1, 532, -261.2, 583, -263.2, 583, -285.2, 603, -287.4, 603, -314.4, 622, -316.5, 622, -335.5, 632, -339.7, 632, -362.7, 639, -364, 639, -413, 638, -413, 636.6, -440, 630.6, -440, 629.4, -478, 615.4, -478, 614.2, -516, 595.2, -516, 594.1, -553, 571.1, -553, 570, -577, 551, -577, 549.8, -601, 525.8, -601, 523.8, -618, 502.7, -618, 500.5, -633, 473.5, -633, 470, -643, 435.3, -643, 427, -644, 384, -642.7, 384, -635.7, 345, -634.4, 345, -594, 223.7, -594, 217.9, -592.2, 197, -597.5, 181, -616.7, 164, -618.5, 164, -700.6, 119, -703.4, 119, -738.4, 105, -742.1, 105, -769, 101.3, -780, 103.7, -791, 112.9, -791, 114.6, -798, 125.6, -798, 129.3, -806, 154.3, -806, 159.2, -812, 197.3, -812, 220, -814, 342, -815.3, 342, -822.3, 380, -823.5, 380, -827.5, 394, -828.8, 394, -839.8, 416, -841, 416, -851, 430, -852.2, 430, -871.2, 449, -873.3, 449, -892.3, 463, -894.5, 463, -926.5, 480, -929.9, 480, -969.8, 490, -995.2, 490, -1035, 480.6, -1035, 479.2, -1070, 461.2, -1070, 460, -1081, 452, -1081, 444, -1079, 444, -1030, 376, -1027.4, 376, -1001.4, 393, -997.6, 393, -990.7, 396, -977, 396, -977, 395.3, -961, 392.3, -961, 391.7, -943, 383.7, -943, 383, -920, 366, -920, 364.5, -910, 344.5, -910, 340.8, -906, 321.6, -906, 305, -905, 183, -903.8, 183, -899.8, 143, -898.5, 143, -886.6, 94, -885.2, 94, -865.2, 55, -863.9, 55, -844.9, 34, -842.7, 34, -823.7, 20, -820.3, 20, -799.4, 11, -793, 11, -780.2, 8, -748.8, 8, -692, 21.4, -692, 22.7, -634, 46.7, -634, 47.9, -551, 94.8, -551, 96.1, -529, 115.1, -529, 117.3, -515, 134.3, -515, 136.5, -505, 156.5, -505, 159.7, -500, 175.7, -500, 183, -499, 224, -500.3, 224, -508.3, 269, -509.6, 269, -549, 385.3, -549, 426, -534.7, 458, -499.2, 494, -497.3, 494, -474.3, 511, -472.5, 511, -444.5, 527, -442.5, 527, -420.5, 538, -417.7, 538, -397.6, 545, -373, 545, -348, 532.7, -348, 532.1, -270, 465.1, -270, 464.2, -254, 446.3, -254, 444.6, -248, 430.7, -248, 430, -247.1, 394, -247.7, 394, -266, 263.1, -266, 256.9, -264.9, 237, -263.7, 237, -257.6, 209, -256.4, 209, -251.4, 196, -250.1, 196, -239.1, 179, -237.7, 179, -213.8, 158, -210.5, 158, -191.5, 148, -187.1, 148, -150.2, 139, -149, 139, -90, 138, -90, 139.1, -19, 144.1, -19, 145.2, 138.3, 168, 148.1, 168, 256, 175.1, 256, 176.3, 276, 179.3, 276, 180.6, 303, 189.6, 303, 190.8, 337, 208.8, 337, 210, 360, 227, 360, 228.1, 385, 251.1, 385, 253.2, 407, 276.2, 407, 278.3, 437, 316.3, 437, 318.3, 525.1, 447, 525.9, 447, 551.9, 475, 553.5, 475, 574.5, 486, 579.1, 486, 593, 487.7, 593, 487.1, 621, 485.1, 621, 484.3, 643, 480.3, 643, 479.6, 694, 462.6, 694, 461.8, 767, 424.8, 767, 423.9, 811, 394.9, 811, 394, 835.2, 374.7, 798.5, 353, 795.6, 353, 750.6, 333, 747.7, 333, 613, 289.5, 613, 288.1, 595, 277.1, 595, 275.7, 579, 256.7, 579, 253.4, 573, 237.4, 573, 218.8, 575.4, 207, 576.7, 207, 586.7, 183, 588, 183, 606, 159.3, 606, 115, 602, -163, 601, -163, 601, -174, 596.6, -185, 585.1, -197, 583.4, -197, 569.4, -206, 566.6, -206, 547.7, -214, 543.7, -214, 500.9, -225, 493.8, -225, 461.7, -230, 448.9, -230, 404.9, -233, 404, -233, -996, -241, -996, -242.5, -1004, -244.4, -1004, -247, -1001, -332, -1001, -335)
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(115, 1074)
+scale = Vector2(0.934373, 0.877012)
+collision_mask = 2
+
+[node name="WinShape" type="CollisionShape2D" parent="WinArea"]
+rotation = 0.541209
+shape = SubResource("RectangleShape2D_s8sbl")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(178, 351)
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="Text1" type="Label" parent="TutorialText"]
+offset_left = 153.0
+offset_top = 232.0
+offset_right = 449.0
+offset_bottom = 310.0
+text = "A vector is a quantity that
+has both magnitude and direction. 
+It is represented visually by an arrow."
+
+[node name="Text2" type="Label" parent="TutorialText"]
+offset_left = 377.0
+offset_top = 415.0
+offset_right = 581.0
+offset_bottom = 519.0
+text = "Control the vector with 
+your arrow keys. 
+Press the spacebar when 
+you're ready. "
+
+[node name="Text3" type="Label" parent="TutorialText"]
+offset_left = 658.0
+offset_top = 237.0
+offset_right = 997.0
+offset_bottom = 315.0
+text = "The arrow's length and direction
+ show the magnitude and
+direction of the quantity being represented."
+
+[node name="Text4" type="Label" parent="TutorialText"]
+offset_left = 896.0
+offset_top = 415.0
+offset_right = 1147.0
+offset_bottom = 519.0
+text = "In this case, the white vector
+represents your velocity while
+the orange vector represents 
+your acceleration"
+
+[node name="Text5" type="Label" parent="TutorialText"]
+offset_left = 1396.0
+offset_top = 342.0
+offset_right = 1536.0
+offset_bottom = 394.0
+text = "SLOW DOWN!!
+Sharp turn ahead."
+
+[node name="Text6" type="Label" parent="TutorialText"]
+offset_left = 1313.0
+offset_top = 418.0
+offset_right = 1567.0
+offset_bottom = 496.0
+text = "You can slow down by pointing
+ the acceleration vector in the 
+opposite direction."
+
+[node name="Text7" type="Label" parent="TutorialText"]
+offset_left = 1169.0
+offset_top = 239.0
+offset_right = 1315.0
+offset_bottom = 317.0
+text = "Velocity is how an
+object's position 
+changes over time."
+
+[node name="Text8" type="Label" parent="TutorialText"]
+offset_left = 1853.0
+offset_top = 484.0
+offset_right = 2063.0
+offset_bottom = 614.0
+text = "Notice that, if there is
+no acceleration, the
+object stops exactly
+where the velocity 
+vector ends."
+
+[node name="Text9" type="Label" parent="TutorialText"]
+offset_left = 1603.0
+offset_top = 667.0
+offset_right = 1746.0
+offset_bottom = 745.0
+text = "Acceleration is the
+change in velocity 
+over time."
+
+[node name="Text10" type="Label" parent="TutorialText"]
+offset_left = 1885.0
+offset_top = 770.0
+offset_right = 2090.0
+offset_bottom = 874.0
+text = "The acceleration vector
+can change the magnitude
+and the direction of the 
+velocity vector."
+
+[node name="Text11" type="Label" parent="TutorialText"]
+offset_left = 1865.0
+offset_top = 1202.0
+offset_right = 2008.0
+offset_bottom = 1280.0
+text = "Let's visualize this
+in a different way."
+
+[node name="Text12" type="Label" parent="TutorialText"]
+offset_left = 1440.0
+offset_top = 1149.0
+offset_right = 1635.0
+offset_bottom = 1279.0
+text = "In this mode, you can
+tell how the two
+vectors add up. The 
+resultant vector is shown
+in cyan."
+
+[node name="Text13" type="Label" parent="TutorialText"]
+offset_left = 1326.0
+offset_top = 955.0
+offset_right = 1505.0
+offset_bottom = 1059.0
+text = "We are simply
+adding the velocity
+and acceleration 
+vectors \"head-to-tail\"."
+
+[node name="Label" type="Label" parent="TutorialText"]
+offset_left = 1175.0
+offset_top = 724.0
+offset_right = 1314.0
+offset_bottom = 776.0
+text = "The new velocity vector is drawn
+from the object to the point where
+the two vectors end. 
+"
+
+[node name="Label2" type="Label" parent="TutorialText"]
+offset_left = 1687.0
+offset_top = 978.0
+offset_right = 1897.0
+offset_bottom = 1082.0
+text = "The sum of the velocity
+and acceleration vectors
+is equal to the new velocity
+of the object."
+
+[node name="Label3" type="Label" parent="TutorialText"]
+offset_left = 975.0
+offset_top = 723.0
+offset_right = 1131.0
+offset_bottom = 775.0
+text = "Ok, now try making
+it around this curve."
+
+[node name="Label4" type="Label" parent="TutorialText"]
+offset_left = 732.0
+offset_top = 978.0
+offset_right = 906.0
+offset_bottom = 1056.0
+text = "Good enough. 
+Let's take off the 
+training wheels again. "
+
+[node name="Label5" type="Label" parent="TutorialText"]
+offset_left = 915.0
+offset_top = 1206.0
+offset_right = 1115.0
+offset_bottom = 1284.0
+text = "The goal, is to finish
+the course with the 
+lowest number of moves. "
+
+[node name="Label6" type="Label" parent="TutorialText"]
+offset_left = 452.0
+offset_top = 1211.0
+offset_right = 589.0
+offset_bottom = 1263.0
+text = "Every crash adds
+a 5 move penalty."
+
+[node name="Label7" type="Label" parent="TutorialText"]
+offset_left = 397.0
+offset_top = 824.0
+offset_right = 502.0
+offset_bottom = 850.0
+text = "Almost there!"
+
+[node name="Label8" type="Label" parent="TutorialText"]
+offset_left = 10.0
+offset_top = 1118.0
+offset_right = 88.0
+offset_bottom = 1144.0
+text = "You did it!"
+
+[node name="Label9" type="Label" parent="TutorialText"]
+offset_left = 1702.0
+offset_top = 286.0
+offset_right = 1878.0
+offset_bottom = 338.0
+text = "It's ok to crash. 
+It's part of the tutorial!"
+
+[node name="VectorTrigger1" type="Area2D" parent="."]
+position = Vector2(1843.82, 1159.54)
+rotation = 1.19295
+collision_mask = 2
+script = ExtResource("3_ahxos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VectorTrigger1"]
+position = Vector2(-0.156494, 0.280273)
+shape = SubResource("RectangleShape2D_fvd5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="VectorTrigger1"]
+modulate = Color(0.0117647, 1, 0.835294, 0.705882)
+scale = Vector2(92.2791, 44.8445)
+texture = SubResource("CanvasTexture_pyykg")
+
+[node name="VectorTrigger2" type="Area2D" parent="."]
+position = Vector2(951, 1035)
+rotation = -0.100103
+collision_mask = 2
+script = ExtResource("3_ahxos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VectorTrigger2"]
+position = Vector2(-0.156494, 0.280273)
+shape = SubResource("RectangleShape2D_fvd5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="VectorTrigger2"]
+modulate = Color(0.901961, 1, 0.0117647, 0.705882)
+scale = Vector2(92.2791, 44.8445)
+texture = SubResource("CanvasTexture_pyykg")
+
+[node name="Grid" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(1154, 648)
+texture = ExtResource("6_0bi3g")

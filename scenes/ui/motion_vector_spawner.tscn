@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn4mde583e2xk"]
-
-[ext_resource type="Script" path="res://scripts/motion_vector_spawner.gd" id="1_u77dy"]
-
-[node name="MotionVectorSpawner" type="Node2D"]
-script = ExtResource("1_u77dy")

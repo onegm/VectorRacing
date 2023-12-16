@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgtaxpfvupde6"]
+
+[ext_resource type="Script" path="res://entities/ui/hud/hud_spawner.gd" id="1_qvmyi"]
+
+[node name="HUDSpawner" type="Node2D"]
+script = ExtResource("1_qvmyi")

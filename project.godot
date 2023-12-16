@@ -10,16 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Race Game"
-run/main_scene="res://scenes/level_1.tscn"
+config/name="Vector Racing"
+run/main_scene="res://entities/levels/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*res://scenes/game.tscn"
-SignalBus="*res://scripts/signal_bus.gd"
-RacerSignalBus="*res://scripts/racer_signal_bus.gd"
+Game="*res://entities/autoloads/game.tscn"
+SignalBus="*res://entities/autoloads/signal_bus.gd"
+InputManager="*res://entities/autoloads/input_manager.tscn"
 
 [display]
 

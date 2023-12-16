@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd3nh17nw5mht"]
-
-[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_ir7fi"]
-[ext_resource type="PackedScene" uid="uid://dsw4a5unh172u" path="res://scenes/tracks/track_0.tscn" id="2_ey2hx"]
-
-[node name="Level0" type="Node2D"]
-script = ExtResource("1_ir7fi")
-track_scene = ExtResource("2_ey2hx")

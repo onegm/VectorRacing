@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://b01sq5q2ho1ii"]
+
+[ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_1gmlj"]
+[ext_resource type="Texture2D" uid="uid://ceujsep1jwmmm" path="res://assets/level_1_track.png" id="2_jeooc"]
+[ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://assets/checkered line.png" id="3_ty071"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2fb8"]
+radius = 212.0
+height = 1074.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnk"]
+size = Vector2(11.75, 123)
+
+[node name="Track1" type="Node2D"]
+script = ExtResource("1_1gmlj")
+
+[node name="TrackDrawing" type="TextureRect" parent="."]
+offset_left = -5.0
+offset_top = -2.0
+offset_right = 1147.0
+offset_bottom = 646.0
+texture = ExtResource("2_jeooc")
+
+[node name="InnerTrack" type="Area2D" parent="."]
+position = Vector2(574, 320)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerTrack"]
+polygon = PackedVector2Array(-293, 142, 287, 142, 325, 133, 351, 125, 376, 112, 396, 96, 421, 69, 436, 45, 442, 22, 445, 1, 440, -24, 429, -51, 416, -71, 401, -87, 384, -100, 360, -115, 335, -125, 303, -132, 269, -136, -286, -136, -308, -133, -332, -128, -360, -117, -383, -105, -399, -93, -415, -77, -427, -62, -437, -46, -445, -17, -447, 2, -445, 24, -437, 48, -428, 65, -416, 81, -398, 97, -378, 111, -357, 122, -335, 131, -310, 137)
+
+[node name="OuterTrack" type="Area2D" parent="."]
+position = Vector2(573, 322)
+collision_mask = 2
+
+[node name="OuterShape" type="CollisionShape2D" parent="OuterTrack"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s2fb8")
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(276, 498)
+collision_mask = 2
+
+[node name="WinShape" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource("RectangleShape2D_m7hnk")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(312, 497)
+
+[node name="CheckeredLine" type="Sprite2D" parent="."]
+position = Vector2(283, 498)
+rotation = 1.5708
+scale = Vector2(0.142504, 0.12555)
+texture = ExtResource("3_ty071")
