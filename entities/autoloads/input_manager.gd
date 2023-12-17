@@ -4,14 +4,13 @@ extends Node2D
 
 var x_change = 0
 var y_change = 0
-var result = []
 
 signal next_pressed
 signal reset_pressed
 
 func _ready():
 	SignalBus.input_mode_changed.connect(func(): input_mode = Game.input_mode)
-
+	
 func process_player_input(player_global_position : Vector2):
 	if input_mode == Game.INPUT_METHOD.KEYBOARD:
 		return read_keyboard_input()

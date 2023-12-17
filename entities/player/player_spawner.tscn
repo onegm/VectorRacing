@@ -1,33 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gj4bf50et8u"]
+[gd_scene load_steps=2 format=3 uid="uid://6gj4bf50et8u"]
 
 [ext_resource type="Script" path="res://entities/player/player_spawner.gd" id="1_mm2jy"]
-[ext_resource type="PackedScene" uid="uid://bjch5jy0wynd7" path="res://entities/player/player.tscn" id="2_sxntp"]
 
 [node name="PlayerSpawner" type="Node2D"]
 script = ExtResource("1_mm2jy")
-player_scene = ExtResource("2_sxntp")
-
-[node name="OnePlayer" type="Node2D" parent="."]
-position = Vector2(70, 225)
-
-[node name="SpawnPoint" type="Marker2D" parent="OnePlayer"]
-
-[node name="TwoPlayers" type="Node2D" parent="."]
-position = Vector2(178, 225)
-
-[node name="SpawnPoint1" type="Marker2D" parent="TwoPlayers"]
-position = Vector2(0, -22)
-
-[node name="SpawnPoint2" type="Marker2D" parent="TwoPlayers"]
-position = Vector2(0, 22)
-
-[node name="ThreePlayers" type="Node2D" parent="."]
-position = Vector2(268, 225)
-
-[node name="SpawnPoint1" type="Marker2D" parent="ThreePlayers"]
-position = Vector2(0, -22)
-
-[node name="SpawnPoint2" type="Marker2D" parent="ThreePlayers"]
-
-[node name="SpawnPoint3" type="Marker2D" parent="ThreePlayers"]
-position = Vector2(0, 22)

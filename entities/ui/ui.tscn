@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4mde583e2xk" path="res://entities/ui/hud/motion_vector_spawner.tscn" id="4_xfgv2"]
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_3bn5c")
 
 [node name="WinScreen" parent="." instance=ExtResource("2_dbrf0")]

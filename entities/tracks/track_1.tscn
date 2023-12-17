@@ -44,7 +44,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_m7hnk")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(312, 497)
+position = Vector2(350, 497)
 
 [node name="CheckeredLine" type="Sprite2D" parent="."]
 position = Vector2(283, 498)

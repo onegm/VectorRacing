@@ -6,7 +6,7 @@ enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 
 var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
 var input_mode : INPUT_METHOD = INPUT_METHOD.KEYBOARD
-var num_players = 1
+var num_players = 3
 
 var level_rect : Rect2
 

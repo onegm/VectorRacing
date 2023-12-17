@@ -4,15 +4,13 @@ class_name Level
 @export var ui_scene : PackedScene = preload("res://entities/ui/ui.tscn")
 @export var track_scene : PackedScene
 @export var camera_scene : PackedScene = preload("res://entities/camera/camera_2d.tscn")
-@export var player_spawner_scene : PackedScene = preload("res://entities/player/player_spawner.tscn")
 
 @onready var ui = ui_scene.instantiate()
 @onready var track = track_scene.instantiate()
 @onready var camera = camera_scene.instantiate()
-@onready var player_spawner = player_spawner_scene.instantiate()
 
 var players = []
-var current_player
+var current_player : CharacterBody2D
 var current_player_idx = 0
 var finishers = []
 var race_is_active = true
@@ -25,7 +23,7 @@ func _ready():
 	add_child(ui)
 	add_child(camera)
 	
-	player_spawner.spawn_players(track.get_spawn_point(), track.spawn_rotation)
+	PlayerSpawner.spawn_players(track.get_spawn_point(), track.spawn_rotation)
 	
 	for player in players:
 		player.turn_ended.connect(on_player_turn_ended)
@@ -39,12 +37,9 @@ func _ready():
 	track.player_won.connect(on_player_finished)
 
 func _process(_delta):
-	InputManager.read_game_input()
 	if any_player_in_motion() || !race_is_active:
 		return
-	
-	if all_players_above_min_moves() && !any_player_in_motion():
-		end_race()
+	check_race_ended()
 
 func on_track_exited(crashed_player : CharacterBody2D):
 	crashed_player.crashed.emit()
@@ -61,11 +56,16 @@ func on_player_finished(finished_player : CharacterBody2D):
 func update_min_moves():
 	for finisher in finishers:
 		min_moves = min(min_moves, finisher.get_moves())
+
+func check_race_ended():
+	if players.all(func(player) : return player.get_moves() >= min_moves):
+		end_race()
 			
 func end_race():
 	race_is_active = false
 	var winners = determine_winner()
 	SignalBus.race_ended.emit(winners)
+	get_tree().paused = true
 
 func determine_winner():
 	var winners = []
@@ -91,9 +91,6 @@ func on_player_turn_ended():
 	
 func any_player_in_motion() -> bool:
 	return players.any(func(player): return player.is_in_motion())
-
-func all_players_above_min_moves():
-	return players.all(func(player) : return player.get_moves() >= min_moves)
 
 func no_players_active():
 	return players.all(func(player) : return !player.is_active())
