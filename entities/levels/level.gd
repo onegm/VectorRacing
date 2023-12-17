@@ -61,7 +61,6 @@ func on_player_finished(finished_player : CharacterBody2D):
 func update_min_moves():
 	for finisher in finishers:
 		min_moves = min(min_moves, finisher.get_moves())
-	print(min_moves)
 			
 func end_race():
 	race_is_active = false
@@ -76,8 +75,7 @@ func determine_winner():
 	return winners
 
 func on_player_turn_ended():
-	if no_players_active():
-		return
+	if no_players_active(): return
 		
 	current_player_idx += 1
 	if(current_player_idx >= players.size()):
@@ -90,7 +88,6 @@ func on_player_turn_ended():
 			
 	current_player = players[current_player_idx]
 	current_player.turn_started.emit()
-	print(current_player)
 	
 func any_player_in_motion() -> bool:
 	return players.any(func(player): return player.is_in_motion())

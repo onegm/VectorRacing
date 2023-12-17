@@ -12,7 +12,7 @@ const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 @onready var vector_mode = Game.vector_mode
 
 func _ready():
-	SignalBus.vector_mode_toggled.connect(func(mode): vector_mode = mode)
+	SignalBus.vector_mode_changed.connect(func(): vector_mode = Game.vector_mode)
 	
 func set_player(new_player : CharacterBody2D):
 	player = new_player

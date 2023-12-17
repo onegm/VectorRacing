@@ -4,9 +4,11 @@ const TILE_SIZE = 22
 enum INPUT_METHOD {KEYBOARD, MOUSE}
 enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 
-var vector_mode : VECTOR_MODE = VECTOR_MODE.HEAD_TO_TAIL
-var num_players = 3
+var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
 var input_mode : INPUT_METHOD = INPUT_METHOD.KEYBOARD
+var num_players = 1
+
+var level_rect : Rect2
 
 @onready var current_level : PackedScene = load("res://entities/levels/level_1.tscn")
 @onready var main_menu : PackedScene = load("res://entities/ui/start_page.tscn")
@@ -23,11 +25,16 @@ func toggle_vector_mode():
 		set_vector_mode(VECTOR_MODE.HEAD_TO_TAIL)
 	else:
 		set_vector_mode(VECTOR_MODE.TAIL_TO_TAIL)
-	SignalBus.vector_mode_toggled.emit(vector_mode)
+	SignalBus.vector_mode_changed.emit()
 
 func set_input_method(mode : INPUT_METHOD):
 	input_mode = mode
+	SignalBus.input_mode_changed.emit()
 
 func set_current_level(index : int):
 	var level = load("res://entities/levels/level_" + str(index) + ".tscn")
 	current_level = level
+
+func set_level_rect(rect : Rect2):
+	level_rect = rect
+	SignalBus.level_rect_changed.emit(level_rect)
