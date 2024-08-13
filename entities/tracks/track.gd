@@ -4,6 +4,7 @@ class_name Track
 @onready var inner_track: Area2D = $InnerTrack
 @onready var outer_track: Area2D = $OuterTrack
 @onready var win_area : Area2D = $WinArea
+@onready var camera : Camera2D = $Camera
 
 @export var spawn_rotation : float = 0
 

@@ -24,13 +24,14 @@ func enter() -> void:
 
 
 func process_physics(delta: float) -> State:
-	parent.move_and_slide()
+	if moving_time <= 1.0:
+		parent.move_and_slide()
 	moving_time += delta
 	
 	if crashed:
 		return crashing_state
 		
-	if moving_time >= 1.0 || (parent.velocity.length() < 0.01 && moving_time > 0.1):
+	if moving_time >= 1.2 || (parent.velocity.length() < 0.01 && moving_time > 0.1):
 		return idle_state
 		
 	if finished:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b01sq5q2ho1ii"]
+[gd_scene load_steps=7 format=3 uid="uid://b01sq5q2ho1ii"]
 
 [ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_1gmlj"]
 [ext_resource type="Texture2D" uid="uid://ceujsep1jwmmm" path="res://assets/level_1_track.png" id="2_jeooc"]
 [ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://assets/checkered line.png" id="3_ty071"]
+[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/camera_2d.tscn" id="4_novv4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2fb8"]
 radius = 212.0
@@ -51,3 +52,5 @@ position = Vector2(283, 498)
 rotation = 1.5708
 scale = Vector2(0.142504, 0.12555)
 texture = ExtResource("3_ty071")
+
+[node name="Camera" parent="." instance=ExtResource("4_novv4")]

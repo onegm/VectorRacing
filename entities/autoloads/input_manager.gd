@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var input_mode = Game.input_mode
+@onready var input_method = Game.input_method
 
 var x_change = 0
 var y_change = 0
@@ -9,10 +9,10 @@ signal next_pressed
 signal reset_pressed
 
 func _ready():
-	SignalBus.input_mode_changed.connect(func(): input_mode = Game.input_mode)
+	SignalBus.input_method_changed.connect(func(): input_method = Game.input_method)
 	
 func process_player_input(player_global_position : Vector2):
-	if input_mode == Game.INPUT_METHOD.KEYBOARD:
+	if input_method == Game.INPUT_METHOD.KEYBOARD:
 		return read_keyboard_input()
 	else:
 		return read_mouse_input(player_global_position)

@@ -7,5 +7,5 @@ func _ready():
 
 func on_race_ended(winners : Array):
 	win_screen.set_winner(winners)
-	win_screen.visible = true
+	win_screen.make_visible()
 

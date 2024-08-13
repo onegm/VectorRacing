@@ -59,3 +59,6 @@ func get_moves():
 
 func set_color(color : Color):
 	vehicle_color = color
+	
+func reset():
+	increment_moves(-moves)

@@ -9,9 +9,11 @@ func _ready():
 	menuButton.pressed.connect(on_menu_pressed)
 
 func on_replay_pressed():
-	get_tree().change_scene_to_packed(Game.current_level)
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(Game.current_level_scene)
 
 func on_menu_pressed():
+	get_tree().paused = false
 	get_tree().change_scene_to_packed(Game.main_menu)
 	
 func set_winner(winners : Array):
@@ -33,3 +35,7 @@ func set_winner(winners : Array):
 		text = "No winners..."
 		
 	win_label.set_text(text)
+
+func make_visible():
+	set_visible(true)
+	get_tree().paused = true

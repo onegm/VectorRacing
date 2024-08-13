@@ -3,11 +3,9 @@ class_name Level
 
 @export var ui_scene : PackedScene = preload("res://entities/ui/ui.tscn")
 @export var track_scene : PackedScene
-@export var camera_scene : PackedScene = preload("res://entities/camera/camera_2d.tscn")
 
 @onready var ui = ui_scene.instantiate()
 @onready var track = track_scene.instantiate()
-@onready var camera = camera_scene.instantiate()
 
 var players = []
 var current_player : CharacterBody2D
@@ -17,21 +15,19 @@ var race_is_active = true
 var min_moves = 2**60
 
 func _ready():
+	get_tree().paused = false
 	SignalBus.player_spawned.connect(on_player_spawned)
 	
 	add_child(track)
 	add_child(ui)
-	add_child(camera)
 	
 	PlayerSpawner.spawn_players(track.get_spawn_point(), track.spawn_rotation)
-	
+	track.camera.follow(players)
 	for player in players:
 		player.turn_ended.connect(on_player_turn_ended)
 	
 	current_player = players[current_player_idx]
 	current_player.turn_started.emit()
-	
-	camera.follow(players)
 	
 	track.track_exited.connect(on_track_exited)
 	track.player_won.connect(on_player_finished)
@@ -65,7 +61,6 @@ func end_race():
 	race_is_active = false
 	var winners = determine_winner()
 	SignalBus.race_ended.emit(winners)
-	get_tree().paused = true
 
 func determine_winner():
 	var winners = []
@@ -95,9 +90,3 @@ func any_player_in_motion() -> bool:
 func no_players_active():
 	return players.all(func(player) : return !player.is_active())
 
-func reset():
-	for player in players:
-		player.reset()
-	current_player_idx = 0
-	current_player = players[0]
-	current_player.my_turn_started.emit()
