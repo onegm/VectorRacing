@@ -11,18 +11,17 @@ signal reset_pressed
 func _ready():
 	SignalBus.input_method_changed.connect(func(): input_method = Game.input_method)
 	
-func process_player_input(player_global_position : Vector2):
+func process_player_input(player_global_position : Vector2) -> Vector2:
 	if input_method == Game.INPUT_METHOD.KEYBOARD:
 		return read_keyboard_input()
 	else:
 		return read_mouse_input(player_global_position)
-	
-func read_game_input():
-	if Input.is_action_just_pressed("next_move"):
-		next_pressed.emit()
 
-	if Input.is_action_just_pressed("reset"):
-		reset_pressed.emit()
+func process_confirmation():
+	if input_method == Game.INPUT_METHOD.KEYBOARD:
+		return Input.is_action_just_pressed("keyboard_confirm")
+	else:
+		return Input.is_action_just_pressed("mouse_confirm")
 
 func read_mouse_input(player_global_position):
 	var relative_position = get_global_mouse_position() - player_global_position

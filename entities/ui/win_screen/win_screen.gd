@@ -14,7 +14,7 @@ func on_replay_pressed():
 
 func on_menu_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_packed(Game.main_menu)
+	get_tree().change_scene_to_packed(Game.get_main_menu_scene())
 	
 func set_winner(winners : Array):
 	var text = ""

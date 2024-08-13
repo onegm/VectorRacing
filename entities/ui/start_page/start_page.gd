@@ -4,7 +4,6 @@ extends Node2D
 @onready var num_players_button : OptionButton = $Control/NumPlayersButton
 @onready var input_method_button : OptionButton = $Control/InputMethodButton
 @onready var track_button : OptionButton = $Control/LevelButton
-@onready var start_button = $Control/StartButton
 
 @onready var vector_modes = ["Tail to tail", "Head to tail"]
 @onready var num_players = ["One Player", "Two Players", "Three Players"]
@@ -55,11 +54,14 @@ func on_level_selected(index : int):
 
 func on_start_button_pressed():
 	get_tree().change_scene_to_packed(Game.current_level_scene)
-	pass
+
+func on_help_button_pressed():
+	get_tree().change_scene_to_packed(Game.get_instructions_scene())
 	
 func connect_signals():
 	vector_mode_button.item_selected.connect(on_vector_mode_selected)
 	num_players_button.item_selected.connect(on_num_players_selected)
 	input_method_button.item_selected.connect(on_input_method_selected)
 	track_button.item_selected.connect(on_level_selected)
-	start_button.pressed.connect(on_start_button_pressed)
+	$Control/StartButton.pressed.connect(on_start_button_pressed)
+	$Control/HelpButton.pressed.connect(on_help_button_pressed)

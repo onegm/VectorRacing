@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cckaxb60usjw3"]
+
+[ext_resource type="Script" path="res://entities/ui/instructions/instructions.gd" id="1_r6qbb"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6qbb")
+
+[node name="Objective" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 823.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 20
+text = "Objective:
+Race around the track and reach the finish line with the minimum number of moves. 
+Each crash results in a penalty of 5 moves."
+
+[node name="Controls" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 278.0
+offset_right = 328.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 20
+text = "Controls:
+Keyboard - Arrow keys and WASD to direct acceleration and spacebar to confirm.
+Mouse - Point to direct acceleration and click to confirm."
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 521.0
+offset_right = 730.0
+offset_bottom = 598.0
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
