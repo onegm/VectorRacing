@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://beswfxg1fcw3f"]
+[gd_scene load_steps=7 format=3 uid="uid://beswfxg1fcw3f"]
 
 [ext_resource type="Script" path="res://entities/autoloads/audio_manager.gd" id="1_ycybg"]
-[ext_resource type="AudioStream" uid="uid://doh4oyo30vqfb" path="res://assets/engine_sound.wav" id="2_py4y1"]
-[ext_resource type="AudioStream" uid="uid://b7giepogr4c0r" path="res://assets/crash_sound.wav" id="3_mpqvq"]
-[ext_resource type="AudioStream" uid="uid://cakvix4v84rnr" path="res://assets/applause_sound.wav" id="4_3gddp"]
+[ext_resource type="AudioStream" uid="uid://doh4oyo30vqfb" path="res://assets/audio/engine_sound.wav" id="2_py4y1"]
+[ext_resource type="AudioStream" uid="uid://coegfhram3epe" path="res://assets/audio/crash_sound.wav" id="3_mpqvq"]
+[ext_resource type="AudioStream" uid="uid://cakvix4v84rnr" path="res://assets/audio/applause_sound.wav" id="4_3gddp"]
+[ext_resource type="AudioStream" uid="uid://86la3xnruqbk" path="res://assets/audio/crowd_ambience_loop.wav" id="5_si725"]
+[ext_resource type="AudioStream" uid="uid://dxbo4yntjcd7m" path="res://assets/audio/theme_music.mp3" id="6_remgn"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_ycybg")
@@ -14,10 +16,15 @@ volume_db = -10.331
 
 [node name="CrashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mpqvq")
-volume_db = -10.0
 
 [node name="ApplauseSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("4_3gddp")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="CrowdAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_si725")
+volume_db = -10.0
+
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_remgn")
+autoplay = true
