@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://beswfxg1fcw3f"]
+
+[ext_resource type="Script" path="res://entities/autoloads/audio_manager.gd" id="1_ycybg"]
+[ext_resource type="AudioStream" uid="uid://doh4oyo30vqfb" path="res://assets/engine_sound.wav" id="2_py4y1"]
+[ext_resource type="AudioStream" uid="uid://b7giepogr4c0r" path="res://assets/crash_sound.wav" id="3_mpqvq"]
+[ext_resource type="AudioStream" uid="uid://cakvix4v84rnr" path="res://assets/applause_sound.wav" id="4_3gddp"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ycybg")
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_py4y1")
+volume_db = -10.331
+
+[node name="CrashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mpqvq")
+volume_db = -10.0
+
+[node name="ApplauseSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_3gddp")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]

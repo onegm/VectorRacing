@@ -31,6 +31,7 @@ func _ready():
 	
 	track.track_exited.connect(on_track_exited)
 	track.player_won.connect(on_player_finished)
+	SignalBus.race_loaded.emit()
 
 func _process(_delta):
 	if any_player_in_motion() || !race_is_active:
@@ -90,3 +91,5 @@ func any_player_in_motion() -> bool:
 func no_players_active():
 	return players.all(func(player) : return !player.is_active())
 
+func _exit_tree():
+	SignalBus.race_unloaded.emit()

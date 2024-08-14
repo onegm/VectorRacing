@@ -20,8 +20,8 @@ static func get_spawn_positions(spawn_position, spawn_rotation):
 	match Game.num_players:
 		1: return [spawn_position]
 		2: return [
-			spawn_position - PLAYER_SEPARATION.rotated(spawn_rotation),
-			spawn_position + PLAYER_SEPARATION.rotated(spawn_rotation)
+			spawn_position - PLAYER_SEPARATION.rotated(spawn_rotation)*0.7,
+			spawn_position + PLAYER_SEPARATION.rotated(spawn_rotation)*0.7
 		]
 		3: return [
 			spawn_position - PLAYER_SEPARATION.rotated(spawn_rotation),

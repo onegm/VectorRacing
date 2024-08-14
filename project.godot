@@ -13,13 +13,14 @@ config_version=5
 config/name="Vector Racing"
 run/main_scene="res://entities/ui/start_page/start_page.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
 Game="*res://entities/autoloads/game.tscn"
 SignalBus="*res://entities/autoloads/signal_bus.gd"
 InputManager="*res://entities/autoloads/input_manager.tscn"
+AudioManager="*res://entities/autoloads/audio_manager.tscn"
 
 [display]
 

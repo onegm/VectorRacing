@@ -1,10 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@onready
-var state_machine : StateMachine = $StateMachine
-@onready
-var vehicle : Sprite2D = $Vehicle
+@onready var state_machine : StateMachine = $StateMachine
+@onready var vehicle : Sprite2D = $Vehicle
 
 var vehicle_color : Color
 

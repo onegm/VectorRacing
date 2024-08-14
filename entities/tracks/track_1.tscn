@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b01sq5q2ho1ii"]
+[gd_scene load_steps=8 format=3 uid="uid://b01sq5q2ho1ii"]
 
 [ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_1gmlj"]
-[ext_resource type="Texture2D" uid="uid://ceujsep1jwmmm" path="res://assets/level_1_track.png" id="2_jeooc"]
-[ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://assets/checkered line.png" id="3_ty071"]
+[ext_resource type="Texture2D" uid="uid://ceujsep1jwmmm" path="res://entities/tracks/assets/level_1_track.png" id="2_jeooc"]
+[ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://entities/tracks/assets/checkered line.png" id="3_ty071"]
 [ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/camera_2d.tscn" id="4_novv4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2fb8"]
@@ -11,6 +11,9 @@ height = 1074.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnk"]
 size = Vector2(11.75, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrswr"]
+size = Vector2(4, 98)
 
 [node name="Track1" type="Node2D"]
 script = ExtResource("1_1gmlj")
@@ -38,14 +41,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s2fb8")
 
 [node name="WinArea" type="Area2D" parent="."]
-position = Vector2(276, 498)
+position = Vector2(282, 498)
 collision_mask = 2
 
 [node name="WinShape" type="CollisionShape2D" parent="WinArea"]
 shape = SubResource("RectangleShape2D_m7hnk")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(350, 497)
+position = Vector2(318, 497)
 
 [node name="CheckeredLine" type="Sprite2D" parent="."]
 position = Vector2(283, 498)
@@ -54,3 +57,9 @@ scale = Vector2(0.142504, 0.12555)
 texture = ExtResource("3_ty071")
 
 [node name="Camera" parent="." instance=ExtResource("4_novv4")]
+
+[node name="Obstruction" type="StaticBody2D" parent="."]
+position = Vector2(289, 497)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstruction"]
+shape = SubResource("RectangleShape2D_qrswr")

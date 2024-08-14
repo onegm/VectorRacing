@@ -19,8 +19,10 @@ func set_parent(new_parent : CharacterBody2D):
 
 func enter() -> void:
 	crashed = false
-	moving_time = 0
+	moving_time = 0.0
 	parent.increment_moves()
+	AudioManager.engine_sound.set_pitch_scale(1 + parent.velocity.length() / 1000)
+	AudioManager.engine_sound.play()
 
 
 func process_physics(delta: float) -> State:
@@ -31,13 +33,15 @@ func process_physics(delta: float) -> State:
 	if crashed:
 		return crashing_state
 		
-	if moving_time >= 1.2 || (parent.velocity.length() < 0.01 && moving_time > 0.1):
+	if moving_time >= 1.2 || (parent.velocity.length() < 0.01 && moving_time > 0.01):
+		parent.turn_ended.emit()
 		return idle_state
 		
 	if finished:
+		parent.turn_ended.emit()
 		return finished_state
 		
 	return null
 
 func exit():
-	parent.turn_ended.emit()
+	AudioManager.engine_sound.stop()
