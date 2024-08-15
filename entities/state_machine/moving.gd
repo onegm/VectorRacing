@@ -21,7 +21,7 @@ func enter() -> void:
 	crashed = false
 	moving_time = 0.0
 	parent.increment_moves()
-	AudioManager.engine_sound.set_pitch_scale(1 + parent.velocity.length() / 500)
+	AudioManager.engine_sound.set_pitch_scale(1 + parent.velocity.length() / 250)
 	AudioManager.engine_sound.play()
 
 

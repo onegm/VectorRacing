@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var state_machine : StateMachine = $StateMachine
-@onready var vehicle : Sprite2D = $Vehicle
+@onready var vehicle : AnimatedSprite2D = $Vehicle
 
 var vehicle_color : Color
 
@@ -44,7 +44,7 @@ func set_acceleration(acc : Vector2):
 func update_velocity():
 	velocity += acceleration
 	set_acceleration(Vector2.ZERO)
-	vehicle.look_at(global_position + velocity)
+	look_at(global_position + velocity)
 
 func is_in_motion():
 	return state_machine.current_state is MovingState
@@ -57,6 +57,8 @@ func get_moves():
 
 func set_color(color : Color):
 	vehicle_color = color
+	if vehicle == null: return
+	vehicle.set_modulate(vehicle_color)
 	
 func reset():
 	increment_moves(-moves)

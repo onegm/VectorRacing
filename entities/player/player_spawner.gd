@@ -2,7 +2,7 @@ extends Node2D
 class_name PlayerSpawner
 
 static var player_scene : PackedScene = load("res://entities/player/player.tscn")
-const PLAYER_SEPARATION = Vector2.DOWN*(Game.TILE_SIZE + 2)
+const PLAYER_SEPARATION = Vector2.DOWN*(Game.TILE_SIZE)
 
 static func spawn_players(spawn_position: Vector2, spawn_rotation : float):
 	var colors = [Color.BLUE, Color.RED, Color.PURPLE, Color.DARK_GREEN]

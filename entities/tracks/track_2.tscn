@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4n2cpfm54m8k"]
+
+[ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_ib4sm"]
+[ext_resource type="Texture2D" uid="uid://ctu2n1tb6s6iv" path="res://entities/tracks/assets/track_2.png" id="2_od0w7"]
+[ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://entities/tracks/assets/checkered line.png" id="3_k4oy8"]
+[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/camera_2d.tscn" id="4_86k65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7hnk"]
+size = Vector2(11.75, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrswr"]
+size = Vector2(4, 76)
+
+[node name="Track1" type="Node2D"]
+script = ExtResource("1_ib4sm")
+
+[node name="bg" type="TextureRect" parent="."]
+offset_left = 167.0
+offset_top = -17.0
+offset_right = 1767.0
+offset_bottom = 1163.0
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("2_od0w7")
+
+[node name="InnerTrack" type="Area2D" parent="."]
+visible = false
+position = Vector2(574, 325)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InnerTrack"]
+position = Vector2(1, -1)
+polygon = PackedVector2Array(-222, 219, 175, 220, 191, 206, 199, 175, 211, 146, 230, 119, 253, 96, 280, 80, 313, 69, 343, 66, 356, 64, 374, 50, 387, 25, 387, -15, 375, -36, 360, -50, 347, -55, 153, -56, 124, -60, 93, -72, 68, -91, 42, -116, 23, -138, -19, -187, -30, -198, -77, -206, -141, -214, -205, -222, -242, -225, -258, -221, -265, -218, -283, -197, -286, -183, -280, -163, -269, -147, -256, -139, -246, -138, -104, -144, -70, -143, -43, -133, -27, -124, 142, 45, 158, 73, 164, 103, 163, 128, 156, 146, 147, 163, 132, 183, 111, 194, 94, 199, 71, 201, 31, 199, -12, 183, -149, 193, -160, 192, -190, 183, -219, 168, -242, 147, -259, 119, -267, 100, -281, 94, -290, 101, -286, 115, -262, 175, -248, 213, -238, 219)
+
+[node name="OuterTrack" type="Area2D" parent="."]
+position = Vector2(573, 327)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterTrack"]
+polygon = PackedVector2Array(-242, 291, 188, 291, 205, 285, 230, 267, 251, 247, 260, 230, 272, 190, 286, 163, 304, 148, 324, 139, 371, 135, 386, 129, 410, 115, 433, 93, 451, 67, 460, 41, 463, 25, 463, -20, 461, -34, 455, -53, 444, -75, 427, -97, 402, -117, 381, -126, 361, -132, 347, -133, 156, -133, 140, -137, 121, -147, 106, -160, 93, -176, 30, -249, 19, -259, 7, -266, -5, -272, -29, -279, -50, -282, -228, -303, -242, -303, -263, -301, -283, -296, -298, -289, -312, -278, -325, -266, -340, -247, -350, -228, -356, -211, -359, -192, -358, -168, -353, -151, -346, -133, -336, -116, -325, -102, -310, -89, -293, -79, -274, -71, -255, -67, -241, -65, -193, -68, -128, -72, -91, -74, -79, -72, -70, -67, 77, 80, 85, 88, 90, 95, 92, 102, 91, 111, 85, 120, 79, 125, 72, 127, 65, 127, 18, 109, 0, 105, -12, 104, -138, 115, -146, 115, -158, 113, -169, 108, -183, 97, -190, 85, -199, 60, -206, 50, -222, 35, -231, 29, -240, 24, -252, 19, -267, 15, -283, 15, -296, 17, -309, 22, -322, 29, -334, 37, -344, 47, -351, 56, -357, 68, -362, 83, -363, 92, -363, 100, -363, 108, -362, 122, -324, 217, -315, 239, -303, 259, -289, 271, -264, 285)
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(350, 581)
+collision_mask = 2
+
+[node name="WinShape" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource("RectangleShape2D_m7hnk")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(373, 586)
+
+[node name="CheckeredLine" type="Sprite2D" parent="."]
+position = Vector2(353, 580)
+rotation = 1.5708
+scale = Vector2(0.142504, 0.12555)
+texture = ExtResource("3_k4oy8")
+
+[node name="Camera" parent="." instance=ExtResource("4_86k65")]
+position = Vector2(578, 324)
+
+[node name="Obstruction" type="StaticBody2D" parent="."]
+position = Vector2(289, 498)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstruction"]
+position = Vector2(70, 83)
+shape = SubResource("RectangleShape2D_qrswr")

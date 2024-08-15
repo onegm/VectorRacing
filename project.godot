@@ -15,6 +15,10 @@ run/main_scene="res://entities/ui/start_page/start_page.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
+[audio]
+
+driver/output_latency.web=60
+
 [autoload]
 
 Game="*res://entities/autoloads/game.tscn"

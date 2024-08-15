@@ -35,7 +35,7 @@ func set_input_method(mode : INPUT_METHOD):
 func set_current_level(index : int):
 	current_level = index
 	current_level_scene = load("res://entities/levels/level_" + str(index) + ".tscn")
-
+	
 func set_level_rect(rect : Rect2):
 	level_rect = rect
 	SignalBus.level_rect_changed.emit(level_rect)

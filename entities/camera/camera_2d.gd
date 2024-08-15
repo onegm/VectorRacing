@@ -20,10 +20,12 @@ func _process(delta):
 		set_offset(get_shake_offset())
 
 func follow(new_players : Array):
+	if new_players.is_empty() or new_players == null : return
 	players = new_players
 	update_position()
 
 func update_position():
+	if players.is_empty() or players == null : return
 	var avg_position = Vector2.ZERO
 	for player in players:
 		avg_position += player.global_position

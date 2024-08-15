@@ -18,8 +18,13 @@ func set_player(new_player : CharacterBody2D):
 	player = new_player
 	player.acceleration_changed.connect(on_acceleration_changed)
 	player.turn_started.connect(on_turn_started)
-	player.turn_ended.connect(on_turn_ended)	
-	player.add_child(self)
+	player.turn_ended.connect(on_turn_ended)
+	player.add_sibling(self)
+	
+	var remote_transform = RemoteTransform2D.new()
+	remote_transform.update_rotation = false
+	remote_transform.remote_path = self.get_path()
+	player.add_child(remote_transform)
 
 func on_turn_started(): set_visible(true)
 func on_turn_ended(): set_visible(false)
