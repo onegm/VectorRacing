@@ -1,11 +1,12 @@
 extends Node2D
-class_name Level
+class_name RaceManager
 
 @export var ui_scene : PackedScene = preload("res://entities/ui/ui.tscn")
 @export var track_scene : PackedScene
 
 @onready var ui = ui_scene.instantiate()
-@onready var track = track_scene.instantiate()
+@onready var track = load("res://entities/tracks/track_" + 
+							str(Game.current_track) + ".tscn").instantiate()
 
 var players = []
 var current_player : CharacterBody2D
@@ -17,6 +18,7 @@ var min_moves = 2**60
 func _ready():
 	get_tree().paused = false
 	SignalBus.player_spawned.connect(on_player_spawned)
+	SignalBus.track_changed.connect(update_track)
 	
 	add_child(track)
 	add_child(ui)
@@ -33,6 +35,10 @@ func _ready():
 	track.player_won.connect(on_player_finished)
 	SignalBus.race_loaded.emit()
 
+func update_track():
+	track = load("res://entities/tracks/track_" + 
+							str(Game.current_track) + ".tscn").instantiate()
+	
 func _process(_delta):
 	if any_player_in_motion() || !race_is_active:
 		return

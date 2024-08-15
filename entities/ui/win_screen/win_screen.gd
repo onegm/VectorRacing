@@ -10,7 +10,7 @@ func _ready():
 
 func on_replay_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_packed(Game.current_level_scene)
+	get_tree().change_scene_to_packed(Game.race_manager)
 
 func on_menu_pressed():
 	get_tree().paused = false

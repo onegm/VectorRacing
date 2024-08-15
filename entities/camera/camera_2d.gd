@@ -10,8 +10,8 @@ const SHAKE_DECAY : float = 10.0
 func _ready():
 	rand.randomize()
 	SignalBus.player_crashed.connect(shake)
-	SignalBus.level_rect_changed.connect(set_rect_limits)
-	set_rect_limits(Game.level_rect)
+	SignalBus.camera_limit_rect_changed.connect(set_rect_limits)
+	set_rect_limits(Game.camera_limit_rect)
 
 func _process(delta):
 	update_position()

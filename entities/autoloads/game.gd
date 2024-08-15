@@ -7,11 +7,11 @@ enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
 var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD
 var num_players = 3
-var current_level = 1
 
-var level_rect : Rect2
+var current_track = 1
+var camera_limit_rect : Rect2
 
-@onready var current_level_scene : PackedScene = load("res://entities/levels/level_1.tscn")
+@onready var race_manager : PackedScene = load("res://entities/levels/race_manager.tscn")
 @onready var main_menu_address = "res://entities/ui/start_page/start_page.tscn"
 @onready var instructions_scene_address = "res://entities/ui/instructions/instructions.tscn"
 
@@ -32,13 +32,15 @@ func set_input_method(mode : INPUT_METHOD):
 	input_method = mode
 	SignalBus.input_method_changed.emit()
 
-func set_current_level(index : int):
-	current_level = index
-	current_level_scene = load("res://entities/levels/level_" + str(index) + ".tscn")
+func set_current_track(track : int):
+	current_track = track
+	SignalBus.track_changed.emit()
+	#race_manager = load("res://entities/levels/race_manager.tscn")
+	#race_manager.set_track(index)
 	
-func set_level_rect(rect : Rect2):
-	level_rect = rect
-	SignalBus.level_rect_changed.emit(level_rect)
+func set_camera_limit_rect(rect : Rect2):
+	camera_limit_rect = rect
+	SignalBus.camera_limit_rect_changed.emit(camera_limit_rect)
 	
 func get_main_menu_scene() -> PackedScene:
 	return load(main_menu_address)

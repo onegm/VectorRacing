@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b81ude3rwl207" path="res://assets/audio/theme_music.mp3" id="6_5ybd4"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_ycybg")
 
 [node name="EngineSound" type="AudioStreamPlayer" parent="."]

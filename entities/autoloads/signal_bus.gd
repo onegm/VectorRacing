@@ -10,4 +10,5 @@ signal race_unloaded()
 signal vector_mode_changed()
 signal input_method_changed()
 
-signal level_rect_changed(rect : Rect2)
+signal camera_limit_rect_changed(rect : Rect2)
+signal track_changed()
