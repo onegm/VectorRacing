@@ -18,8 +18,6 @@ signal moves_changed
 signal acceleration_changed
 
 func _ready() -> void:
-	# Initialize the state machine, passing a reference of the player to the states,
-	# that way they can move and react accordingly
 	state_machine.init(self)
 	vehicle.set_modulate(vehicle_color)
 

@@ -26,4 +26,3 @@ func on_win_area_entered(player : CharacterBody2D):
 	
 func get_spawn_point():
 	return $SpawnPoint.global_position
-

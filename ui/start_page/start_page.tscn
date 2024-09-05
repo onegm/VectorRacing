@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://b05ror2ya1o1c"]
+
+[ext_resource type="Script" path="res://ui/start_page/start_page.gd" id="1_j63th"]
+
+[sub_resource type="Theme" id="Theme_ps4lq"]
+default_font_size = 40
+
+[node name="StartPage" type="Node2D"]
+script = ExtResource("1_j63th")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+theme = SubResource("Theme_ps4lq")
+
+[node name="VectorModeButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 207.0
+offset_right = 430.0
+offset_bottom = 270.0
+
+[node name="NumPlayersButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 285.0
+offset_right = 432.0
+offset_bottom = 348.0
+
+[node name="InputMethodButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 367.0
+offset_right = 432.0
+offset_bottom = 430.0
+
+[node name="LevelButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 201.0
+offset_right = 997.0
+offset_bottom = 264.0
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 502.0
+offset_right = 492.0
+offset_bottom = 565.0
+text = "START"
+
+[node name="HelpButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 502.0
+offset_right = 793.0
+offset_bottom = 565.0
+text = "HELP"
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_top = 30.0
+offset_right = 155.5
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.540877, 0.723193, 0.447543, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "VECTOR RACING"

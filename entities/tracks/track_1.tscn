@@ -59,7 +59,7 @@ texture = ExtResource("3_ty071")
 [node name="Camera" parent="." instance=ExtResource("4_novv4")]
 
 [node name="Obstruction" type="StaticBody2D" parent="."]
-position = Vector2(289, 498)
+position = Vector2(289, 395)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstruction"]
 shape = SubResource("RectangleShape2D_qrswr")

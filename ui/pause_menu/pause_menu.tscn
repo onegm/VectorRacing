@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://ek0hved3gd37"]
+
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="1_pcxv2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7kt6"]
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_0evdr"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_s3s0k"]
+default_font_size = 32
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcxv2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.407843, 0.407843, 0.407843, 0.729412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_right = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "
+"
+label_settings = SubResource("LabelSettings_b7kt6")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_b7kt6")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "
+"
+label_settings = SubResource("LabelSettings_b7kt6")
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_0evdr")
+text = "CONTINUE"
+
+[node name="ReplayButton" type="Button" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_s3s0k")
+text = "RESTART"
+
+[node name="MenuButton" type="Button" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_0evdr")
+text = "MAIN MENU"
