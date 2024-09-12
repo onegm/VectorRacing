@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://ui/hud/motion_vectors/motion_vectors.gd" id="1_hn63u"]
 
 [node name="MotionVectors" type="Node2D"]
+top_level = true
 z_index = 1
 script = ExtResource("1_hn63u")

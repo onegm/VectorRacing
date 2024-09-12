@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://beswfxg1fcw3f"]
 
 [ext_resource type="Script" path="res://autoloads/audio_manager.gd" id="1_ycybg"]
-[ext_resource type="AudioStream" uid="uid://doh4oyo30vqfb" path="res://assets/audio/engine_sound.wav" id="2_py4y1"]
-[ext_resource type="AudioStream" uid="uid://coegfhram3epe" path="res://assets/audio/crash_sound.wav" id="3_mpqvq"]
-[ext_resource type="AudioStream" uid="uid://cakvix4v84rnr" path="res://assets/audio/applause_sound.wav" id="4_3gddp"]
-[ext_resource type="AudioStream" uid="uid://86la3xnruqbk" path="res://assets/audio/crowd_ambience_loop.wav" id="5_si725"]
-[ext_resource type="AudioStream" uid="uid://b81ude3rwl207" path="res://assets/audio/theme_music.mp3" id="6_5ybd4"]
+[ext_resource type="AudioStream" uid="uid://doh4oyo30vqfb" path="res://audio/engine_sound.wav" id="2_py4y1"]
+[ext_resource type="AudioStream" uid="uid://coegfhram3epe" path="res://audio/crash_sound.wav" id="3_mpqvq"]
+[ext_resource type="AudioStream" uid="uid://cakvix4v84rnr" path="res://audio/applause_sound.wav" id="4_3gddp"]
+[ext_resource type="AudioStream" uid="uid://86la3xnruqbk" path="res://audio/crowd_ambience_loop.wav" id="5_si725"]
+[ext_resource type="AudioStream" uid="uid://b81ude3rwl207" path="res://audio/theme_music.mp3" id="6_5ybd4"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3

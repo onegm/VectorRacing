@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://pv5ojln4w7xj"]
+[gd_scene load_steps=4 format=3 uid="uid://pv5ojln4w7xj"]
 
 [ext_resource type="Script" path="res://ui/hud/move_counter/move_counter.gd" id="1_2awei"]
+[ext_resource type="FontFile" uid="uid://bi3y6crasdwpu" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_w2wpi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5rafs"]
+font = ExtResource("2_w2wpi")
 font_size = 40
 
 [node name="MoveCounter" type="Control"]
@@ -16,7 +18,39 @@ script = ExtResource("1_2awei")
 
 [node name="MovesLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 210.0
+offset_bottom = 49.0
 text = "Moves: 000"
 label_settings = SubResource("LabelSettings_5rafs")
+
+[node name="ColorRect2" type="ColorRect" parent="MovesLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -27.5
+offset_right = 110.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.412152, 0.412152, 0.412152, 1)
+
+[node name="ColorRect" type="ColorRect" parent="MovesLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -24.5
+offset_right = 107.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

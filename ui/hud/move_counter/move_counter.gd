@@ -26,4 +26,3 @@ func on_turn_end():
 
 func on_player_finished():
 	moves_label.set_modulate(finished_color)
-

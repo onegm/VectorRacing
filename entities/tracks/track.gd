@@ -15,7 +15,7 @@ func _ready():
 	inner_track.body_entered.connect(on_track_exited)
 	outer_track.body_exited.connect(on_track_exited)
 	win_area.body_entered.connect(on_win_area_entered)
-	Game.set_camera_limit_rect($bg.get_rect())
+	Game.set_camera_limit_rect(get_viewport_rect())
 	
 func on_track_exited(player : CharacterBody2D):
 	track_exited.emit(player)
