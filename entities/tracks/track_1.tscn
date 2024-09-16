@@ -257,7 +257,6 @@ scale = Vector2(0.18, 0.158)
 texture = ExtResource("3_ty071")
 
 [node name="Camera" parent="." instance=ExtResource("4_novv4")]
-visible = false
 
 [node name="Props" type="TileMapLayer" parent="."]
 position = Vector2(0, -9)

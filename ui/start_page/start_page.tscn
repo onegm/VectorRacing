@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b05ror2ya1o1c"]
+[gd_scene load_steps=6 format=3 uid="uid://b05ror2ya1o1c"]
 
 [ext_resource type="Script" path="res://ui/start_page/start_page.gd" id="1_j63th"]
+[ext_resource type="FontFile" uid="uid://dvqhc3dmipur6" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_v4mdu"]
+[ext_resource type="FontFile" uid="uid://eqxg4yne6tug" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_v6bb5"]
 
 [sub_resource type="Theme" id="Theme_ps4lq"]
+default_font = ExtResource("2_v4mdu")
 default_font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_80yea"]
+font = ExtResource("2_v6bb5")
+font_size = 72
+font_color = Color(0.107076, 0.764958, 0.466312, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="StartPage" type="Node2D"]
 script = ExtResource("1_j63th")
@@ -77,3 +87,4 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
 text = "VECTOR RACING"
+label_settings = SubResource("LabelSettings_80yea")

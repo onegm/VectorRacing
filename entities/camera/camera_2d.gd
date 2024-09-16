@@ -31,7 +31,7 @@ func update_position():
 		avg_position += player.global_position
 	avg_position /= players.size()
 	global_position = avg_position
-
+		
 func shake():
 	current_shake_strength = SHAKE_STRENGTH
 
