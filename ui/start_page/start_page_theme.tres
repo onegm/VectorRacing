@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://csxyvlp48nu33"]
+
+[ext_resource type="FontFile" uid="uid://dvqhc3dmipur6" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_kksgk"]
+
+[resource]
+resource_local_to_scene = true
+default_font = ExtResource("1_kksgk")
+default_font_size = 40

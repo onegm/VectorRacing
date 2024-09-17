@@ -8,12 +8,10 @@ extends Node2D
 @onready var vector_modes = ["Tail to tail", "Head to tail"]
 @onready var num_players = ["One Player", "Two Players", "Three Players"]
 @onready var input_methods = ["Keyboard", "Mouse"]
-@onready var tracks = ["Track 1", "Track 2"]
 @onready var button_options = {
 	vector_mode_button : vector_modes,
 	num_players_button : num_players,
-	input_method_button : input_methods,
-	track_button : tracks
+	input_method_button : input_methods
 }
 
 func _ready():

@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b05ror2ya1o1c"]
+[gd_scene load_steps=8 format=3 uid="uid://b05ror2ya1o1c"]
 
 [ext_resource type="Script" path="res://ui/start_page/start_page.gd" id="1_j63th"]
-[ext_resource type="FontFile" uid="uid://dvqhc3dmipur6" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_v4mdu"]
+[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/start_page/start_page_theme.tres" id="2_n5ykn"]
 [ext_resource type="FontFile" uid="uid://eqxg4yne6tug" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="2_v6bb5"]
-
-[sub_resource type="Theme" id="Theme_ps4lq"]
-default_font = ExtResource("2_v4mdu")
-default_font_size = 40
+[ext_resource type="Texture2D" uid="uid://dqbelg31ec00b" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Summer_details (16 x 16).png" id="3_vlcgn"]
+[ext_resource type="Texture2D" uid="uid://bcus2p5rbt2ks" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Desert_details (16 x 16).png" id="4_jrek1"]
+[ext_resource type="Texture2D" uid="uid://dhoujntmy6yfe" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Winter_details (16 x 16).png" id="5_2rw3u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_80yea"]
 font = ExtResource("2_v6bb5")
@@ -23,7 +22,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1151.0
 offset_bottom = 647.0
-theme = SubResource("Theme_ps4lq")
+theme = ExtResource("2_n5ykn")
 
 [node name="VectorModeButton" type="OptionButton" parent="Control"]
 layout_mode = 0
@@ -52,6 +51,20 @@ offset_left = 725.0
 offset_top = 201.0
 offset_right = 997.0
 offset_bottom = 264.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+item_count = 3
+popup/item_0/text = "SPRING"
+popup/item_0/icon = ExtResource("3_vlcgn")
+popup/item_1/text = "SUMMER"
+popup/item_1/icon = ExtResource("4_jrek1")
+popup/item_1/id = 1
+popup/item_2/text = "WINTER"
+popup/item_2/icon = ExtResource("5_2rw3u")
+popup/item_2/id = 2
 
 [node name="StartButton" type="Button" parent="Control"]
 layout_mode = 0
