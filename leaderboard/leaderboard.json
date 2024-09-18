@@ -1,0 +1,68 @@
+{
+	"SPRING": {
+		"1st": {
+			"moves": 50,
+			"name": "Saint Louie"
+		},
+		"2nd": {
+			"moves": 55,
+			"name": "Suna"
+		},
+		"3rd": {
+			"moves": 60,
+			"name": "Emma"
+		},
+		"4th": {
+			"moves": 65,
+			"name": "Omar"
+		},
+		"5th": {
+			"moves": 70,
+			"name": "Shofita"
+		}
+	},
+	"SUMMER": {
+		"1st": {
+			"moves": 50,
+			"name": "Saint Louie"
+		},
+		"2nd": {
+			"moves": 55,
+			"name": "Suna"
+		},
+		"3rd": {
+			"moves": 60,
+			"name": "Emma"
+		},
+		"4th": {
+			"moves": 65,
+			"name": "Omar"
+		},
+		"5th": {
+			"moves": 70,
+			"name": "Shofita"
+		}
+	},
+	"WINTER": {
+		"1st": {
+			"moves": 50,
+			"name": "Saint Louie"
+		},
+		"2nd": {
+			"moves": 55,
+			"name": "Suna"
+		},
+		"3rd": {
+			"moves": 60,
+			"name": "Emma"
+		},
+		"4th": {
+			"moves": 65,
+			"name": "Omar"
+		},
+		"5th": {
+			"moves": 70,
+			"name": "Shofita"
+		}
+	}
+}

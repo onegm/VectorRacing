@@ -25,7 +25,7 @@ func set_defaults():
 	vector_mode_button.select(Game.vector_mode)
 	num_players_button.select(Game.num_players - 1)
 	input_method_button.select(Game.input_method)
-	track_button.select(Game.current_track - 1)
+	track_button.select(Game.current_track)
 	
 
 func on_vector_mode_selected(mode_idx):
@@ -48,7 +48,7 @@ func on_input_method_selected(method_idx):
 		push_error("Invalid input method selected")
 
 func on_level_selected(index : int):
-	Game.set_current_track(index + 1)
+	Game.set_current_track(index)
 
 func on_start_button_pressed():
 	get_tree().change_scene_to_packed(Game.race_manager)

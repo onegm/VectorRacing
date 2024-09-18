@@ -2,6 +2,5 @@ extends State
 class_name FinishedState
 
 func enter():
-	super()
+	super.enter()
 	AudioManager.applause_sound.play()
-	parent.finished.emit()

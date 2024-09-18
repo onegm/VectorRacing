@@ -3,12 +3,13 @@ extends Node
 const TILE_SIZE = 22
 enum INPUT_METHOD {KEYBOARD, MOUSE}
 enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
+enum TRACK {SPRING, SUMMER, WINTER}
 
 var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
 var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD
 var num_players = 3
 
-var current_track = 1
+var current_track : TRACK = TRACK.SPRING
 var camera_limit_rect : Rect2
 
 @onready var race_manager : PackedScene = load("res://entities/race_manager/race_manager.tscn")
@@ -32,7 +33,7 @@ func set_input_method(mode : INPUT_METHOD):
 	input_method = mode
 	SignalBus.input_method_changed.emit()
 
-func set_current_track(track : int):
+func set_current_track(track : TRACK):
 	current_track = track
 	SignalBus.track_changed.emit()
 	

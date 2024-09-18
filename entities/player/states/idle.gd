@@ -12,16 +12,16 @@ const LOW_Z_IDX = 0
 const HIGH_Z_IDX = 1
 
 func set_parent(new_parent : CharacterBody2D):
-	super(new_parent)
+	super.set_parent(new_parent)
 	parent.turn_started.connect(func(): myTurn = true)
 
 func enter() -> void:
-	super()
+	super.enter()
 	parent.modulate.a = LOW_ALPHA
 	parent.set_z_index(LOW_Z_IDX)
 
 func exit() -> void:
-	super()
+	super.exit()
 	myTurn = false
 	parent.modulate.a = HIGH_ALPHA
 	parent.set_z_index(HIGH_Z_IDX)

@@ -25,6 +25,7 @@ SignalBus="*res://autoloads/signal_bus.gd"
 AudioManager="*res://autoloads/audio_manager.tscn"
 Game="*res://autoloads/game.gd"
 InputManager="*res://autoloads/input_manager.gd"
+Leaderboard="*res://leaderboard/leaderboard.gd"
 
 [debug]
 

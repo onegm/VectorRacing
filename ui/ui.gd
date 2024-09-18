@@ -7,7 +7,7 @@ func _ready():
 	SignalBus.race_ended.connect(on_race_ended)
 	SignalBus.pause_pressed.connect(on_pause_pressed)
 
-func on_race_ended(winners : Array):
+func on_race_ended(winners : Array, _finishers):
 	win_screen.set_winner(winners)
 	win_screen.make_visible()
 

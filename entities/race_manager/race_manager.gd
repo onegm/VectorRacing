@@ -10,9 +10,9 @@ class_name RaceManager
 
 var players = []
 var current_player : CharacterBody2D
-var current_player_idx = 0
+var current_player_idx : int = 0
 var finishers = []
-var race_is_active = true
+var race_is_active := true
 var min_moves = 2**60
 
 func _ready():
@@ -53,8 +53,10 @@ func on_player_spawned(player : CharacterBody2D):
 
 func on_player_finished(finished_player : CharacterBody2D):
 	finishers.append(finished_player)
+	finishers.sort_custom(func(a, b): return a.moves < b.moves)
 	finished_player.finished.emit()
 	update_min_moves()
+
 
 func update_min_moves():
 	for finisher in finishers:
@@ -67,7 +69,7 @@ func check_race_ended():
 func end_race():
 	race_is_active = false
 	var winners = determine_winner()
-	SignalBus.race_ended.emit(winners)
+	SignalBus.race_ended.emit(winners, finishers)
 
 func determine_winner():
 	var winners = []
@@ -78,13 +80,11 @@ func determine_winner():
 
 func on_player_turn_ended():
 	if no_players_active(): return
-		
-	current_player_idx += 1
-	if(current_player_idx >= players.size()):
-		current_player_idx = 0
-		
+	
+	current_player_idx = wrap(current_player_idx + 1, 0, players.size())
+	
 	while(!players[current_player_idx].is_active()):
-		current_player_idx += 1
+		current_player_idx+= 1
 		if(current_player_idx >= players.size()):
 			current_player_idx = 0
 			

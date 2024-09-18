@@ -13,7 +13,7 @@ var finished = false
 var moving_time = 0.0
 
 func set_parent(new_parent : CharacterBody2D):
-	super(new_parent)
+	super.set_parent(new_parent)
 	parent.crashed.connect(func(): crashed = true)
 	parent.finished.connect(func(): finished = true)
 
