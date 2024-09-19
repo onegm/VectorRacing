@@ -52,6 +52,7 @@ func update_leaderboard(track : Game.TRACK, track_leaderboard : Array):
 		
 	var json_string = JSON.stringify(leaderboard, "\t")
 	write_data(json_string)
+	SignalBus.leaderboard_updated.emit()
 
 func write_data(data : String):
 	if not FileAccess.file_exists(file_path):

@@ -243,6 +243,7 @@ shape = SubResource("RectangleShape2D_m7hnk")
 [node name="Obstruction" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2(638, 524)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstruction"]
 shape = SubResource("RectangleShape2D_qrswr")

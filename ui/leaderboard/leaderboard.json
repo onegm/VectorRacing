@@ -2,29 +2,29 @@
 	"SPRING": {
 		"1st": {
 			"moves": 50,
-			"name": "Saint Louie"
+			"name": "Blue"
 		},
 		"2nd": {
 			"moves": 55,
-			"name": "Suna"
+			"name": "Red"
 		},
 		"3rd": {
 			"moves": 60,
-			"name": "Emma"
+			"name": "aaaaa"
 		},
 		"4th": {
 			"moves": 65,
-			"name": "Omar"
+			"name": "Emma"
 		},
 		"5th": {
 			"moves": 70,
-			"name": "Shofita"
+			"name": "EEEEE"
 		}
 	},
 	"SUMMER": {
 		"1st": {
 			"moves": 50,
-			"name": "Saint Louie"
+			"name": "Saint"
 		},
 		"2nd": {
 			"moves": 55,
@@ -40,13 +40,13 @@
 		},
 		"5th": {
 			"moves": 70,
-			"name": "Shofita"
+			"name": "Shofi"
 		}
 	},
 	"WINTER": {
 		"1st": {
 			"moves": 50,
-			"name": "Saint Louie"
+			"name": "Saint"
 		},
 		"2nd": {
 			"moves": 55,
@@ -62,7 +62,7 @@
 		},
 		"5th": {
 			"moves": 70,
-			"name": "Shofita"
+			"name": "Shofi"
 		}
 	}
 }
