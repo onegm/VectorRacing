@@ -1,9 +1,9 @@
-extends Node2D
+extends Control
 
-@onready var vector_mode_button : OptionButton = $Control/VectorModeButton
-@onready var num_players_button : OptionButton = $Control/NumPlayersButton
-@onready var input_method_button : OptionButton = $Control/InputMethodButton
-@onready var track_button : OptionButton = $Control/LevelButton
+@onready var vector_mode_button : OptionButton = $VectorModeButton
+@onready var num_players_button : OptionButton = $NumPlayersButton
+@onready var input_method_button : OptionButton = $InputMethodButton
+@onready var track_button : OptionButton = $LevelButton
 
 @onready var vector_modes = ["Tail to tail", "Head to tail"]
 @onready var num_players = ["One Player", "Two Players", "Three Players"]
@@ -55,11 +55,15 @@ func on_start_button_pressed():
 
 func on_help_button_pressed():
 	get_tree().change_scene_to_packed(Game.get_instructions_scene())
+
+func on_leaderboard_button_pressed():
+	get_tree().change_scene_to_packed(Game.get_leaderboard_scene())
 	
 func connect_signals():
 	vector_mode_button.item_selected.connect(on_vector_mode_selected)
 	num_players_button.item_selected.connect(on_num_players_selected)
 	input_method_button.item_selected.connect(on_input_method_selected)
 	track_button.item_selected.connect(on_level_selected)
-	$Control/StartButton.pressed.connect(on_start_button_pressed)
-	$Control/HelpButton.pressed.connect(on_help_button_pressed)
+	%StartButton.pressed.connect(on_start_button_pressed)
+	%HelpButton.pressed.connect(on_help_button_pressed)
+	%LeaderboardButton.pressed.connect(on_leaderboard_button_pressed)

@@ -13,8 +13,9 @@ var current_track : TRACK = TRACK.SPRING
 var camera_limit_rect : Rect2
 
 @onready var race_manager : PackedScene = load("res://entities/race_manager/race_manager.tscn")
-@onready var main_menu_address = "res://ui/start_page/start_page.tscn"
-@onready var instructions_scene_address = "res://ui/instructions/instructions.tscn"
+var main_menu_address = "res://ui/start_page/start_page.tscn"
+var instructions_scene_address = "res://ui/instructions/instructions.tscn"
+var leaderboard_scene_address = "res://ui/leaderboard/Leaderboard.tscn"
 
 func set_num_players(num : int):
 	num_players = num
@@ -46,3 +47,6 @@ func get_main_menu_scene() -> PackedScene:
 
 func get_instructions_scene() -> PackedScene:
 	return load(instructions_scene_address)
+
+func get_leaderboard_scene() -> PackedScene:
+	return load(leaderboard_scene_address)

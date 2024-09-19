@@ -14,38 +14,36 @@ font_color = Color(0.107076, 0.764958, 0.466312, 1)
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
 
-[node name="StartPage" type="Node2D"]
-script = ExtResource("1_j63th")
-
-[node name="Control" type="Control" parent="."]
+[node name="StartPage" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1151.0
 offset_bottom = 647.0
 theme = ExtResource("2_n5ykn")
+script = ExtResource("1_j63th")
 
-[node name="VectorModeButton" type="OptionButton" parent="Control"]
+[node name="VectorModeButton" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 207.0
 offset_right = 430.0
 offset_bottom = 270.0
 
-[node name="NumPlayersButton" type="OptionButton" parent="Control"]
+[node name="NumPlayersButton" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 285.0
 offset_right = 432.0
 offset_bottom = 348.0
 
-[node name="InputMethodButton" type="OptionButton" parent="Control"]
+[node name="InputMethodButton" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 367.0
 offset_right = 432.0
 offset_bottom = 430.0
 
-[node name="LevelButton" type="OptionButton" parent="Control"]
+[node name="LevelButton" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 725.0
 offset_top = 201.0
@@ -66,23 +64,7 @@ popup/item_2/text = "WINTER"
 popup/item_2/icon = ExtResource("5_2rw3u")
 popup/item_2/id = 2
 
-[node name="StartButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 364.0
-offset_top = 502.0
-offset_right = 492.0
-offset_bottom = 565.0
-text = "START"
-
-[node name="HelpButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 665.0
-offset_top = 502.0
-offset_right = 793.0
-offset_bottom = 565.0
-text = "HELP"
-
-[node name="Title" type="Label" parent="Control"]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -101,3 +83,32 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 60
 text = "VECTOR RACING"
 label_settings = SubResource("LabelSettings_80yea")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "START"
+
+[node name="HelpButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HELP"
+
+[node name="LeaderboardButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Leaderboard"

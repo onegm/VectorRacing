@@ -1,6 +1,6 @@
 extends Node
 
-const file_path := "res://leaderboard/leaderboard.json"
+const file_path := "res://ui/leaderboard/leaderboard.json"
 
 func read_data():
 	if not FileAccess.file_exists(file_path):
