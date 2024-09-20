@@ -88,5 +88,5 @@ func hide_message() -> void:
 
 func _on_CloseButton_pressed() -> void:
 	var scene_name = SilentWolf.scores_config.open_scene_on_close
-	print("scene_name: " + str(scene_name))
+	#print("scene_name: " + str(scene_name))
 	get_tree().change_scene_to_file(scene_name)

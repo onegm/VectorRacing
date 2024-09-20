@@ -32,7 +32,7 @@ static func does_file_exist(path: String) -> bool:
 
 static func get_data(path: String) -> Dictionary:
 	var content = {}
-	print("path: " + str(path))
+	#print("path: " + str(path))
 	if FileAccess.file_exists(path):
 		var file = FileAccess.open(path, FileAccess.READ)
 		var text_content = file.get_as_text()

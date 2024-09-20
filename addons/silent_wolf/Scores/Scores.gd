@@ -88,9 +88,9 @@ func save_score(player_name: String, score, ldboard_name: String="main", metadat
 			"score": score, 
 			"ldboard_name": ldboard_name 
 		}
-		print("!metadata.empty(): " + str(!metadata.is_empty()))
+		#print("!metadata.empty(): " + str(!metadata.is_empty()))
 		if !metadata.is_empty():
-			print("metadata: " + str(metadata))
+			#print("metadata: " + str(metadata))
 			payload["metadata"] = metadata
 		SWLogger.debug("payload: " + str(payload))
 		# also add to local scores
@@ -231,7 +231,7 @@ func _on_GetTopScoreByPlayer_request_completed(result, response_code, headers, b
 func get_score_position(score, ldboard_name: String="main") -> Node:
 	var score_id = null
 	var score_value = null
-	print("score: " + str(score))
+	#print("score: " + str(score))
 	if UUID.is_uuid(str(score)):
 		score_id = score 
 	else:
@@ -270,7 +270,7 @@ func _on_GetScorePosition_request_completed(result, response_code, headers, body
 func get_scores_around(score, scores_to_fetch=3, ldboard_name: String="main") -> Node:
 	var score_id = "Null"
 	var score_value = "Null"
-	print("score: " + str(score))
+	#print("score: " + str(score))
 	if UUID.is_uuid(str(score)):
 		score_id = score 
 	else:

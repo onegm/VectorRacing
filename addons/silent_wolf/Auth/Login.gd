@@ -50,5 +50,5 @@ func _on_LinkButton_pressed() -> void:
 
 
 func _on_back_button_pressed():
-	print("Back button pressed")
+	#print("Back button pressed")
 	get_tree().change_scene_to_file(SilentWolf.auth_config.redirect_to_scene)

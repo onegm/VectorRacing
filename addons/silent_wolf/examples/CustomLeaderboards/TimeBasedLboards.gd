@@ -20,12 +20,12 @@ func _ready():
 
 
 func render_boards(leaderboards: Array) -> void:
-	#print("leaderboards: " + str(leaderboards))
+	##print("leaderboards: " + str(leaderboards))
 	var board_number = 0
 	for board in leaderboards:
 		var list_index = 1
-		#print("ld name: " + str(ld_names[board_number]))
-		#print("ld scores: " + str(board))
+		##print("ld name: " + str(ld_names[board_number]))
+		##print("ld scores: " + str(board))
 		for score in board:
 			add_item(ld_names[board_number], score.player_name, str(int(score.score)), list_index)
 			list_index += 1
@@ -74,7 +74,7 @@ func _on_scores_received(get_scores_result: Dictionary) -> void:
 	elif ld_name == "Weekly":
 		SilentWolf.Scores.get_scores(10, "Monthly")
 	else:
-		#print("SilentWolf.Scores.leaderboards: " + str(SilentWolf.Scores.leaderboards))
+		##print("SilentWolf.Scores.leaderboards: " + str(SilentWolf.Scores.leaderboards))
 		var ld_scores = []
 		for i in [0, 1, 2]:
 			if ld_names[i] in SilentWolf.Scores.leaderboards:

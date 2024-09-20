@@ -26,7 +26,7 @@ func _ready():
 	#var err = _client.connect_to_url(websocket_url)
 	#if err != OK:
 		#SWLogger.debug("Unable to connect to WS server")
-	#	print("Unable to connect to WS server")
+	#	#print("Unable to connect to WS server")
 	#	set_process(false)
 	#emit_signal("ws_client_ready")
 
@@ -40,7 +40,7 @@ func _connected(proto = ""):
 	# This is called on connection, "proto" will be the selected WebSocket
 	# sub-protocol (which is optional)
 	#SWLogger.debug("Connected with protocol: " + str(proto))
-	print("Connected with protocol: ", proto)
+	#print("Connected with protocol: ", proto)
 	# You MUST always use get_peer(1).put_packet to send data to server,
 	# and not put_packet directly when not using the MultiplayerAPI.
 	#var test_packet = { "data": "Test packet" }
@@ -53,7 +53,7 @@ func _on_data():
 	# to receive data from server, and not get_packet directly when not
 	# using the MultiplayerAPI.
 	#SWLogger.debug("Got data from WS server: " + str(_client.get_peer(1).get_packet().get_string_from_utf8()))
-	#print("Got data from WS server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
+	##print("Got data from WS server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
 	pass
 
 func _process(delta):
@@ -66,12 +66,12 @@ func _process(delta):
 # send arbitrary data to backend
 func send_to_server(message_type, data):
 	data["message_type"] = message_type
-	print("Sending data to server: " + str(data))
+	#print("Sending data to server: " + str(data))
 	#_client.get_peer(1).put_packet(str(JSON.stringify(data)).to_utf8())
 
 
 func init_mp_session(player_name):
-	print("WSClient init_mp_session, sending initialisation packet to server")
+	#print("WSClient init_mp_session, sending initialisation packet to server")
 	var init_packet = { 
 		"player_name": player_name 
 	}

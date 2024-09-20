@@ -18,11 +18,9 @@ var instructions_scene_address = "res://ui/instructions/instructions.tscn"
 var leaderboard_scene_address = "res://ui/leaderboard/Leaderboard.tscn"
 
 func _ready() -> void:
-	if FileAccess.file_exists("res://private.gd"):
-		config()
+	config()
 
 func config():
-	
 	SilentWolf.configure({
 		"api_key": Private.api_key,
 		"game_id": Private.game_identifier,

@@ -16,11 +16,13 @@ static func error(text):
 
 static func info(text):
 	if get_log_level() > 0:
-		print(str(text))
+		#print(str(text))
+		pass
 	
 static func debug(text):
 	if get_log_level() > 1:
-		print(str(text))
+		#print(str(text))
+		pass
 		
 static func log_time(log_text, log_level='INFO'):
 	var timestamp = SWUtils.get_timestamp()

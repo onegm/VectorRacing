@@ -32,8 +32,8 @@ func _send_init_message():
 
 func send(data: Dictionary):
 	# First check that WSClient is in tree
-	print("Attempting to send data to web socket server")
+	#print("Attempting to send data to web socket server")
 	if WSClient.is_inside_tree():
 		# TODO: check if data is properly formatted (should be dictionary?)
-		print("Sending data to web socket server...")
+		#print("Sending data to web socket server...")
 		WSClient.send_to_server("update", data)
