@@ -8,9 +8,9 @@ const SWHashing = preload("res://addons/silent_wolf/utils/SWHashing.gd")
 const SWLogger = preload("res://addons/silent_wolf/utils/SWLogger.gd")
 
 @onready var Auth = Node.new()
-@onready var Scores = Node.new()
 @onready var Players = Node.new()
 @onready var Multiplayer = Node.new()
+@onready var Scores = Node.new()
 
 #
 # SILENTWOLF CONFIG: THE CONFIG VARIABLES BELOW WILL BE OVERRIDED THE 

@@ -26,7 +26,7 @@ func on_text_changed():
 	text_edit.set_caret_column(max_char)
 
 func on_submit_pressed():
-	LeaderboardManager.save_score(text_edit.text, player.moves)
+	LeaderboardManager.save_score(text_edit.text, player.moves, Game.current_track)
 	text_edit.clear()
 	visible = false
 	SignalBus.leaderboard_score_submitted.emit()

@@ -12,7 +12,7 @@ func update():
 		var place_labels : Array = leaderboards[track].get_children()
 		var index = 0
 		for child : Label in place_labels:
-			child.text = track_leaderboard[index].name + " : " + str(track_leaderboard[index].moves)
-			index += 1
 			if index >= track_leaderboard.size():
 				break
+			child.text = track_leaderboard[index].name + " : " + str(track_leaderboard[index].moves)
+			index += 1

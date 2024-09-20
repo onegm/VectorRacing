@@ -10,11 +10,13 @@ func gets_on_leaderboard(track : Game.TRACK , moves : int) -> bool:
 			return true
 	return false
 
-func save_score(player_name : String, score : int, board_name : String = "main"):
-	SilentWolf.Scores.save_score(player_name, score, board_name)
+func save_score(player_name : String, score : int, track : Game.TRACK):
+	var leaderboard_name = Game.TRACK.keys()[track]
+	SilentWolf.Scores.save_score(player_name, score, leaderboard_name)
 
 func get_sorted_track_leaderboard(track : Game.TRACK) -> Array:
-	var leaderboard : Dictionary = await SilentWolf.Scores.get_scores(5).sw_get_scores_complete
+	var leaderboard_name = Game.TRACK.keys()[track]
+	var leaderboard : Dictionary = await SilentWolf.Scores.get_scores(5, leaderboard_name).sw_get_scores_complete
 	var leaderboard_arr : Array = []
 	for player in leaderboard.scores:
 		leaderboard_arr.append({
