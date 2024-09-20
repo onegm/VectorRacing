@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cskmwj7jj750b"]
 
 [ext_resource type="Script" path="res://entities/race_manager/race_manager.gd" id="1_c4wde"]
-[ext_resource type="PackedScene" uid="uid://dh8t10lwytbci" path="res://entities/tracks/track_1.tscn" id="2_5ofbp"]
+[ext_resource type="PackedScene" uid="uid://b01sq5q2ho1ii" path="res://entities/tracks/track_1.tscn" id="2_5ofbp"]
 
 [node name="RaceManager" type="Node2D"]
 script = ExtResource("1_c4wde")

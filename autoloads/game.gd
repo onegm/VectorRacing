@@ -12,10 +12,22 @@ var num_players = 3
 var current_track : TRACK = TRACK.SPRING
 var camera_limit_rect : Rect2
 
-@onready var race_manager : PackedScene = load("res://entities/race_manager/race_manager.tscn")
+@onready var race_manager : PackedScene = preload("res://entities/race_manager/race_manager.tscn")
 var main_menu_address = "res://ui/start_page/start_page.tscn"
 var instructions_scene_address = "res://ui/instructions/instructions.tscn"
 var leaderboard_scene_address = "res://ui/leaderboard/Leaderboard.tscn"
+
+func _ready() -> void:
+	if FileAccess.file_exists("res://private.gd"):
+		config()
+
+func config():
+	
+	SilentWolf.configure({
+		"api_key": Private.api_key,
+		"game_id": Private.game_identifier,
+		"log_level": 0
+	})
 
 func set_num_players(num : int):
 	num_players = num

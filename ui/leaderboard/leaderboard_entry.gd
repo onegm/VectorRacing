@@ -1,8 +1,8 @@
 extends Control
 
 @onready var vehicle = %Vehicle
-@onready var text_edit = %TextEdit
-@onready var submit_button = %SubmitButton
+@onready var text_edit : TextEdit = %TextEdit
+@onready var submit_button := %SubmitButton
 
 const max_char := 5
 var player : CharacterBody2D = null
@@ -26,4 +26,7 @@ func on_text_changed():
 	text_edit.set_caret_column(max_char)
 
 func on_submit_pressed():
-	LeaderboardManager.place_in_leaderboard(Game.current_track, text_edit.text, player.moves)
+	LeaderboardManager.save_score(text_edit.text, player.moves)
+	text_edit.clear()
+	visible = false
+	SignalBus.leaderboard_score_submitted.emit()

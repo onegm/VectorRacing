@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dh8t10lwytbci"]
+[gd_scene load_steps=33 format=4 uid="uid://b01sq5q2ho1ii"]
 
 [ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_ib4sm"]
 [ext_resource type="Texture2D" uid="uid://bcus2p5rbt2ks" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Desert_details (16 x 16).png" id="2_ymexd"]

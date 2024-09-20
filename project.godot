@@ -26,6 +26,7 @@ AudioManager="*res://autoloads/audio_manager.tscn"
 Game="*res://autoloads/game.gd"
 InputManager="*res://autoloads/input_manager.gd"
 LeaderboardManager="*res://ui/leaderboard/leaderboard_manager.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [debug]
 
@@ -34,6 +35,10 @@ gdscript/warnings/unused_signal=0
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
 
 [input]
 

@@ -137,7 +137,6 @@ texture = ExtResource("7_sqe3m")
 
 [node name="BottleNeck2" type="Sprite2D" parent="Road/Straight1/BottleNeck"]
 position = Vector2(511, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("7_sqe3m")
 flip_h = true
 
@@ -158,12 +157,10 @@ texture = ExtResource("4_mnkl3")
 
 [node name="Straight3" type="Sprite2D" parent="Road/Straight2"]
 position = Vector2(-511.11, 0.000488281)
-scale = Vector2(1, 1)
 texture = ExtResource("4_mnkl3")
 
 [node name="Straight4" type="Sprite2D" parent="Road/Straight2"]
 position = Vector2(-1022.22, 0.0023385)
-scale = Vector2(1, 1)
 texture = ExtResource("4_mnkl3")
 
 [node name="Curve1" type="Sprite2D" parent="Road"]
@@ -214,7 +211,6 @@ texture = ExtResource("7_sqe3m")
 
 [node name="BottleNeck2" type="Sprite2D" parent="Road/Straight3/BottleNeck2"]
 position = Vector2(511, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("7_sqe3m")
 flip_h = true
 

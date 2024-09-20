@@ -77,33 +77,33 @@ position = Vector2(286.4, 496)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_pclqn")
 
-[node name="Straight3" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(2540, 0)
-texture = ExtResource("3_pclqn")
-
-[node name="Straight8" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(3553.33, 0)
-texture = ExtResource("3_pclqn")
-
-[node name="Straight5" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(2033.33, 0)
-texture = ExtResource("3_pclqn")
-
-[node name="Straight7" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(3046.67, 0)
-texture = ExtResource("3_pclqn")
-
 [node name="Straight2" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(1526.67, 0)
+position = Vector2(507.777, 0)
+texture = ExtResource("4_rlgmu")
+
+[node name="Straight3" type="Sprite2D" parent="Road/Straight1"]
+position = Vector2(1014.44, 0)
 texture = ExtResource("4_rlgmu")
 
 [node name="Straight4" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(1020, 0)
+position = Vector2(1521.12, 0)
 texture = ExtResource("4_rlgmu")
 
+[node name="Straight5" type="Sprite2D" parent="Road/Straight1"]
+position = Vector2(2027.77, 0)
+texture = ExtResource("3_pclqn")
+
 [node name="Straight6" type="Sprite2D" parent="Road/Straight1"]
-position = Vector2(513.333, 0)
-texture = ExtResource("4_rlgmu")
+position = Vector2(2534.44, 0)
+texture = ExtResource("3_pclqn")
+
+[node name="Straight7" type="Sprite2D" parent="Road/Straight1"]
+position = Vector2(3041.12, 0)
+texture = ExtResource("3_pclqn")
+
+[node name="Straight8" type="Sprite2D" parent="Road/Straight1"]
+position = Vector2(3547.78, 0)
+texture = ExtResource("3_pclqn")
 
 [node name="Straight2" type="Sprite2D" parent="Road"]
 position = Vector2(591, 220.5)
@@ -127,19 +127,19 @@ position = Vector2(-1013.33, 0)
 texture = ExtResource("4_rlgmu")
 
 [node name="ShortRoad" type="Sprite2D" parent="Road"]
-position = Vector2(902.25, 437)
+position = Vector2(901.417, 437)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_llrtw")
 
 [node name="Curve1" type="Sprite2D" parent="Road"]
-position = Vector2(902, 496)
+position = Vector2(901.167, 496)
 rotation = -1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("6_o77uv")
 
 [node name="Chicane1" type="Sprite2D" parent="Road"]
-position = Vector2(921.5, 361)
+position = Vector2(920.667, 361)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("7_16u0o")
@@ -150,7 +150,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("7_16u0o")
 
 [node name="Curve2" type="Sprite2D" parent="Road"]
-position = Vector2(940.6, 259)
+position = Vector2(939.767, 259)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("8_41ch4")
@@ -193,13 +193,13 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_llrtw")
 
 [node name="ShortRoad2" type="Sprite2D" parent="Road/FinalTurn"]
-position = Vector2(61.25, 18.2)
+position = Vector2(61.25, 19.0334)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_llrtw")
 
 [node name="ShortRoad4" type="Sprite2D" parent="Road/FinalTurn"]
-position = Vector2(61.25, -2.8)
+position = Vector2(61.25, -3.6333)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_llrtw")
@@ -230,7 +230,7 @@ position = Vector2(573, 322)
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OuterTrack"]
-polygon = PackedVector2Array(-298, -25, -297, -76, -293, -102, -283, -126, -267, -147, -246, -162, -222, -174, -197, -176, 283, -176, 303, -172, 326, -156, 349, -140, 363, -132, 376, -130, 399, -130, 424, -126, 449, -116, 469, -101, 485, -80, 495, -55, 499, -30, 499, -6, 494, 13, 478, 36, 462, 58, 455, 72, 453, 86, 453, 148, 449, 174, 445, 187, 438, 198, 423, 219, 402, 234, 378, 245, 352, 248, -379, 248, -405, 245, -429, 235, -450, 218, -466, 198, -477, 174, -480, 147, -479, 75, -476, 50, -466, 25, -450, 5, -429, -11, -405, -22, -380, -25)
+polygon = PackedVector2Array(-298, -25, -297, -76, -293, -102, -283, -126, -267, -147, -246, -162, -222, -174, -197, -176, 283, -176, 303, -172, 326, -156, 349, -140, 363, -132, 376, -130, 399, -130, 424, -126, 449, -116, 469, -101, 485, -80, 495, -55, 499, -30, 499, -6, 494, 13, 478, 36, 462, 58, 455, 72, 452, 81, 452, 148, 449, 174, 445, 187, 438, 198, 423, 219, 402, 235, 391, 241, 378, 245, 366, 248, 352, 249, -379, 248, -405, 245, -429, 235, -450, 218, -466, 198, -477, 174, -480, 147, -479, 75, -476, 50, -466, 25, -450, 5, -429, -11, -405, -22, -380, -25)
 
 [node name="WinArea" type="Area2D" parent="."]
 visible = false

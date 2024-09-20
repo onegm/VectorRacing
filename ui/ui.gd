@@ -18,13 +18,11 @@ func on_pause_pressed() -> void:
 	pause_menu.toggle_visibility()
 
 func check_for_new_records(finishers : Array):
-	finishers.sort_custom(LeaderboardManager.sort_by_moves)
-	print(finishers)
+	finishers.sort_custom(func(a, b): return a.moves < b.moves)
 	for finisher in finishers:
-		if !LeaderboardManager.gets_on_leaderboard(Game.current_track, finisher.moves):
+		var new_record = await LeaderboardManager.gets_on_leaderboard(Game.current_track, finisher.moves)
+		if !new_record:
 			return
 		leaderboard_entry.set_player(finisher)
 		leaderboard_entry.visible = true
-		await SignalBus.leaderboard_updated
-		print("Leaderboard updated!")
-		leaderboard_entry.visible = false
+		await SignalBus.leaderboard_score_submitted
