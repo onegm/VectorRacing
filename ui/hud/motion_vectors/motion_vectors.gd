@@ -13,7 +13,7 @@ const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
 func _ready():
 	SignalBus.vector_mode_changed.connect(func(): vector_mode = Game.vector_mode)
-	
+	SignalBus.race_ended.connect(on_race_ended)
 func set_player(new_player : CharacterBody2D):
 	player = new_player
 	player.acceleration_changed.connect(on_acceleration_changed)
@@ -28,6 +28,7 @@ func set_player(new_player : CharacterBody2D):
 
 func on_turn_started(): set_visible(true)
 func on_turn_ended(): set_visible(false)
+func on_race_ended(_winners, _finishers): set_visible(false)
 
 func on_acceleration_changed():
 	set_new_velocity(player.velocity)

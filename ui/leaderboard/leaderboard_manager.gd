@@ -14,13 +14,13 @@ func save_score(player_name : String, score : int, track : Game.TRACK):
 	var leaderboard_name = Game.TRACK.keys()[track]
 	var track_leaderboard = await get_sorted_track_leaderboard(track)
 	if track_leaderboard.size() < LEADERBOARD_LIMIT:
-		SilentWolf.Scores.save_score(player_name, score, leaderboard_name)
+		await SilentWolf.Scores.save_score(player_name, score, leaderboard_name).sw_save_score_complete
 		return
 	track_leaderboard.pop_back()
 	track_leaderboard.append({"moves" : score, "name" : player_name})
-	SilentWolf.Scores.wipe_leaderboard(leaderboard_name)
+	await SilentWolf.Scores.wipe_leaderboard(leaderboard_name).sw_wipe_leaderboard_complete
 	for player in track_leaderboard:
-		SilentWolf.Scores.save_score(player.name, player.moves, leaderboard_name)
+		await SilentWolf.Scores.save_score(player.name, player.moves, leaderboard_name).sw_save_score_complete
 
 func get_sorted_track_leaderboard(track : Game.TRACK) -> Array:
 	var leaderboard_name = Game.TRACK.keys()[track]

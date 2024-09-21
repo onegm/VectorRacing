@@ -4,6 +4,9 @@ var player : CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	SignalBus.race_ended.connect(on_race_ended)
+
 func set_player(new_player : CharacterBody2D):
 	player = new_player
 	player.turn_started.connect(on_turn_started)
@@ -23,3 +26,6 @@ func on_turn_started() -> void:
 func on_turn_ended() -> void:
 	visible = false
 	animation_player.stop(false)
+
+func on_race_ended(_winners, _finishers):
+	on_turn_ended()

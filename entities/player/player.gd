@@ -3,12 +3,17 @@ extends CharacterBody2D
 
 @onready var state_machine : StateMachine = $StateMachine
 @onready var vehicle : AnimatedSprite2D = $Vehicle
+@onready var collision_shape : CollisionShape2D = $CollisionShape2D
+@onready var replaying_state : State = $StateMachine/Replaying
+@onready var replay_particles : GPUParticles2D = $Vehicle/ReplayTrailParticles
 
 var vehicle_color : Color
 
 var moves = 0
 var acceleration = Vector2.ZERO
 var target = Vector2.ZERO
+var initial_state : Vector3 
+var velocity_record : Array = []
 
 signal turn_started
 signal turn_ended
@@ -20,6 +25,7 @@ signal acceleration_changed
 func _ready() -> void:
 	state_machine.init(self)
 	vehicle.set_modulate(vehicle_color)
+	initial_state = Vector3(global_position.x, global_position.y, global_rotation)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -57,6 +63,6 @@ func set_color(color : Color):
 	vehicle_color = color
 	if vehicle == null: return
 	vehicle.set_modulate(vehicle_color)
-	
-func reset():
-	increment_moves(-moves)
+
+func start_replay():
+	state_machine.change_state(replaying_state)

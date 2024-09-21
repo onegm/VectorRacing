@@ -19,7 +19,7 @@ var leaderboard_scene_address = "res://ui/leaderboard/Leaderboard.tscn"
 
 func _ready() -> void:
 	config()
-
+	
 func config():
 	SilentWolf.configure({
 		"api_key": Private.api_key,

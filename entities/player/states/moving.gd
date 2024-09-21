@@ -45,3 +45,8 @@ func process_physics(delta: float) -> State:
 
 func exit():
 	AudioManager.engine_sound.stop()
+	if crashed:
+		for i in range(CrashingState.CRASH_PENALTY):
+			parent.velocity_record.append(Vector2.ZERO)
+		return
+	parent.velocity_record.append(parent.velocity if !crashed else Vector2.ZERO)

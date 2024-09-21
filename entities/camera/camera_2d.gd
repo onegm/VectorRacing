@@ -7,10 +7,13 @@ var current_shake_strength : float = 0.0
 const SHAKE_STRENGTH : float = Game.TILE_SIZE / 5.0
 const SHAKE_DECAY : float = 10.0
 
+@onready var shake_disabled := false
+
 func _ready():
 	rand.randomize()
 	SignalBus.player_crashed.connect(shake)
 	SignalBus.camera_limit_rect_changed.connect(set_rect_limits)
+	SignalBus.race_ended.connect(on_race_ended)
 	set_rect_limits(Game.camera_limit_rect)
 
 func _process(delta):
@@ -33,6 +36,8 @@ func update_position():
 	global_position = avg_position
 		
 func shake():
+	if shake_disabled:
+		return
 	current_shake_strength = SHAKE_STRENGTH
 
 func get_shake_offset():
@@ -46,3 +51,6 @@ func set_rect_limits(rect : Rect2):
 	limit_right = rect.position.x + rect.size.x as int
 	limit_top = rect.position.y as int
 	limit_bottom = rect.position.y + rect.size.y as int
+
+func on_race_ended(_winners, _finishers):
+	shake_disabled = true

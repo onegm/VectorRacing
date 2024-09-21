@@ -4,7 +4,7 @@ class_name CrashingState
 @export
 var idle_state : State
 
-const CRASH_PENALTY = 5
+static var CRASH_PENALTY = 5
 
 func enter() -> void:
 	AudioManager.crash_sound.play(0.38)

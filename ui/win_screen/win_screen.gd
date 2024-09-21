@@ -1,21 +1,29 @@
 extends Control
 
-@onready var replayButton = $Panel/ReplayButton
-@onready var menuButton = $Panel/MenuButton
+@onready var play_again_button = $Panel/PlayAgainButton
+@onready var menu_button = $Panel/MenuButton
+@onready var watch_replay_button = $Panel/WatchReplayButton
 @onready var win_label = $Panel/Label
 
 func _ready():
-	replayButton.pressed.connect(on_replay_pressed)
-	menuButton.pressed.connect(on_menu_pressed)
-
-func on_replay_pressed():
+	play_again_button.pressed.connect(on_play_again_pressed)
+	menu_button.pressed.connect(on_menu_pressed)
+	watch_replay_button.pressed.connect(on_watch_replay_pressed)
+	
+func on_play_again_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(Game.race_manager)
 
 func on_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(Game.get_main_menu_scene())
-	
+
+func on_watch_replay_pressed():
+	set_visible(false)
+	SignalBus.replay_started.emit()
+	await SignalBus.replay_ended
+	set_visible(true)
+
 func set_winner(winners : Array):
 	var text = ""
 	if winners.size() > 1:

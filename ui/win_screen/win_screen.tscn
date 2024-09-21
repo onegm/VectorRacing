@@ -50,7 +50,7 @@ text = " Wins!!"
 label_settings = SubResource("LabelSettings_b7kt6")
 horizontal_alignment = 1
 
-[node name="ReplayButton" type="Button" parent="Panel"]
+[node name="PlayAgainButton" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,7 +64,7 @@ offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_s3s0k")
-text = "REPLAY"
+text = "Play Again"
 
 [node name="MenuButton" type="Button" parent="Panel"]
 layout_mode = 1
@@ -81,3 +81,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_0evdr")
 text = "Main Menu"
+
+[node name="WatchReplayButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 94.0
+offset_right = 112.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s3s0k")
+text = "Watch Replay"
