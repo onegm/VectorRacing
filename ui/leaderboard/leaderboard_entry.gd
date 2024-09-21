@@ -26,7 +26,10 @@ func on_text_changed():
 	text_edit.set_caret_column(max_char)
 
 func on_submit_pressed():
-	LeaderboardManager.save_score(text_edit.text, player.moves, Game.current_track)
+	var word = text_edit.text
+	if !BadWordsFilter.is_word_ok(word):
+		word = "mark"
+	LeaderboardManager.save_score(word, player.moves, Game.current_track)
 	text_edit.clear()
 	visible = false
 	SignalBus.leaderboard_score_submitted.emit()

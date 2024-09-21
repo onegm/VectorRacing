@@ -27,6 +27,7 @@ Game="*res://autoloads/game.gd"
 InputManager="*res://autoloads/input_manager.gd"
 LeaderboardManager="*res://ui/leaderboard/leaderboard_manager.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+BadWordsFilter="*res://addons/badwordsfilter/bad_words_filter.gd"
 
 [debug]
 
@@ -38,7 +39,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/badwordsfilter/plugin.cfg")
 
 [input]
 
