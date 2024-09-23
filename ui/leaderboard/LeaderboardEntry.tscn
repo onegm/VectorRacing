@@ -147,3 +147,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
 text = "66"
+
+[node name="SkipButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
+flat = true

@@ -4,5 +4,5 @@
 
 [node name="MotionVectors" type="Node2D"]
 top_level = true
-z_index = 1
+z_index = 2
 script = ExtResource("1_hn63u")

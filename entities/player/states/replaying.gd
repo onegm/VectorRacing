@@ -1,16 +1,15 @@
 extends State
 
-@export var idle_state : State 
+@export var idle_state : State
 
 var velocity_record := []
-var finished = true
+var finished := false
 
 @onready var timer : Timer = Timer.new()
 
-func _ready() -> void:
-	SignalBus.update_replay_velocity.connect(update_velocity)
-
 func enter() -> void:
+	finished = false
+	SignalBus.update_replay_velocity.connect(update_velocity)
 	velocity_record = parent.velocity_record.duplicate()
 	parent.velocity = Vector2.ZERO
 	parent.global_position = Vector2(parent.initial_state.x, parent.initial_state.y)
@@ -19,15 +18,16 @@ func enter() -> void:
 
 func process_physics(_delta: float) -> State:
 	parent.move_and_slide()
-	if finished:
-		return 
+	if finished : return idle_state
 	return null
 
 func update_velocity():
 	var new_velocity = velocity_record.pop_front()
 	parent.velocity = new_velocity if new_velocity else Vector2.ZERO
-	if new_velocity == null: 
-		parent.replay_particles.emitting = false
-		SignalBus.player_ended_replay.emit()
-		return
+	finished = new_velocity == null
 	parent.look_at(parent.global_position + parent.velocity)
+
+func exit():
+	parent.replay_particles.emitting = false
+	SignalBus.update_replay_velocity.disconnect(update_velocity)
+	SignalBus.player_ended_replay.emit()
