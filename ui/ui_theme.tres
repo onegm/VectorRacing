@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://csxyvlp48nu33"]
+
+[ext_resource type="FontFile" uid="uid://sqqrvfsg67px" path="res://fonts/Micro_5/Micro5-Regular.ttf" id="1_v186m"]
+
+[resource]
+resource_local_to_scene = true
+default_font = ExtResource("1_v186m")
+default_font_size = 40

@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtuf4uqaqntj1"]
+
+[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_2i363"]
+[ext_resource type="Texture2D" uid="uid://du8ah2lmbjntc" path="res://ui/hud/vector_legend/velocity_vector.png" id="2_chio7"]
+[ext_resource type="Script" path="res://ui/hud/vector_legend/vector_legend.gd" id="2_mcogd"]
+
+[node name="VectorLegend" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme = ExtResource("1_2i363")
+script = ExtResource("2_mcogd")
+
+[node name="MaximizeButton" type="Button" parent="."]
+modulate = Color(0.443137, 0.301961, 0.764706, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -59.0
+offset_right = 28.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "+"
+flat = true
+text_overrun_behavior = 1
+
+[node name="LegendScreen" type="ColorRect" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+offset_right = 140.0
+grow_vertical = 0
+color = Color(0.443137, 0.301961, 0.764706, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="LegendScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Black" type="ColorRect" parent="LegendScreen/MarginContainer2"]
+show_behind_parent = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="LegendScreen/MarginContainer2/Black"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LegendScreen/MarginContainer2/Black/MarginContainer"]
+layout_mode = 2
+
+[node name="VelBox" type="HBoxContainer" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="VLabel" type="Label" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/VelBox"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "vi"
+vertical_alignment = 1
+
+[node name="VVector" type="TextureRect" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/VelBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("2_chio7")
+
+[node name="AccBox" type="HBoxContainer" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="ALabel" type="Label" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/AccBox"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "acc"
+vertical_alignment = 1
+
+[node name="AVector" type="TextureRect" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/AccBox"]
+modulate = Color(1, 0.498039, 0.313726, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("2_chio7")
+
+[node name="VfBox" type="HBoxContainer" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="VfLabel" type="Label" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/VfBox"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "vf"
+vertical_alignment = 1
+
+[node name="RVector" type="TextureRect" parent="LegendScreen/MarginContainer2/Black/MarginContainer/VBoxContainer/VfBox"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("2_chio7")
+
+[node name="MinimizeButton" type="Button" parent="LegendScreen"]
+unique_name_in_owner = true
+modulate = Color(0.532537, 0.406432, 0.861391, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_top = -166.0
+offset_right = 167.0
+offset_bottom = -107.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.443137, 0.301961, 0.764706, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 50
+text = "-"
+flat = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ek0hved3gd37"]
+[gd_scene load_steps=6 format=3 uid="uid://ek0hved3gd37"]
 
 [ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="1_pcxv2"]
+[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_u3t3c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b7kt6"]
 font_size = 40
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_u3t3c")
 script = ExtResource("1_pcxv2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -59,8 +61,8 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_font_sizes/font_size = 90
 text = "PAUSED"
-label_settings = SubResource("LabelSettings_b7kt6")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="ColorRect/VBoxContainer"]
@@ -76,6 +78,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme = SubResource("Theme_0evdr")
+theme_override_font_sizes/font_size = 50
 text = "CONTINUE"
 
 [node name="ReplayButton" type="Button" parent="ColorRect/VBoxContainer"]
@@ -83,6 +86,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme = SubResource("Theme_s3s0k")
+theme_override_font_sizes/font_size = 50
 text = "RESTART"
 
 [node name="MenuButton" type="Button" parent="ColorRect/VBoxContainer"]
@@ -90,4 +94,5 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 theme = SubResource("Theme_0evdr")
+theme_override_font_sizes/font_size = 50
 text = "MAIN MENU"

@@ -1,15 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://batmj5ti412pl"]
+[gd_scene load_steps=13 format=3 uid="uid://batmj5ti412pl"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_3bn5c"]
 [ext_resource type="PackedScene" uid="uid://b8vbosqfr4k" path="res://ui/win_screen/win_screen.tscn" id="2_l74lp"]
+[ext_resource type="FontFile" uid="uid://sqqrvfsg67px" path="res://fonts/Micro_5/Micro5-Regular.ttf" id="3_6s4h8"]
 [ext_resource type="PackedScene" uid="uid://cgtaxpfvupde6" path="res://ui/hud/hud_spawner.tscn" id="3_ekakc"]
 [ext_resource type="PackedScene" uid="uid://ek0hved3gd37" path="res://ui/pause_menu/pause_menu.tscn" id="4_xkw6x"]
 [ext_resource type="PackedScene" uid="uid://b8uo4rkuynx1h" path="res://ui/leaderboard/LeaderboardEntry.tscn" id="5_amv6h"]
 [ext_resource type="FontFile" uid="uid://dvqhc3dmipur6" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="6_fyv2p"]
+[ext_resource type="PackedScene" uid="uid://dtuf4uqaqntj1" path="res://ui/hud/vector_legend/vector_legend.tscn" id="8_rl5sr"]
+
+[sub_resource type="Theme" id="Theme_xgt75"]
+resource_local_to_scene = true
+default_font = ExtResource("3_6s4h8")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_ikctv"]
+resource_local_to_scene = true
+default_font = ExtResource("3_6s4h8")
+default_font_size = 40
 
 [sub_resource type="Theme" id="Theme_g6sst"]
 resource_local_to_scene = true
 default_font = ExtResource("6_fyv2p")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_wm3au"]
+resource_local_to_scene = true
+default_font = ExtResource("3_6s4h8")
 default_font_size = 40
 
 [node name="UI" type="CanvasLayer"]
@@ -23,12 +40,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource("Theme_xgt75")
 
 [node name="HUDSpawner" parent="." instance=ExtResource("3_ekakc")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_xkw6x")]
 visible = false
+theme = SubResource("Theme_ikctv")
 
 [node name="LeaderboardEntry" parent="." instance=ExtResource("5_amv6h")]
 visible = false
 theme = SubResource("Theme_g6sst")
+
+[node name="VectorLegend" parent="." instance=ExtResource("8_rl5sr")]
+theme = SubResource("Theme_wm3au")

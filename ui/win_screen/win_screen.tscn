@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8vbosqfr4k"]
 
+[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_ehkof"]
 [ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="1_h3boa"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_b7kt6"]
-font_size = 40
 
 [sub_resource type="Theme" id="Theme_s3s0k"]
 default_font_size = 32
@@ -20,6 +18,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ehkof")
 script = ExtResource("1_h3boa")
 
 [node name="Panel" type="Panel" parent="."]
@@ -46,8 +45,8 @@ offset_top = 42.0
 offset_right = 62.5
 offset_bottom = 100.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
 text = " Wins!!"
-label_settings = SubResource("LabelSettings_b7kt6")
 horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="Panel"]
@@ -64,6 +63,7 @@ offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_s3s0k")
+theme_override_font_sizes/font_size = 50
 text = "Play Again"
 
 [node name="MenuButton" type="Button" parent="Panel"]
@@ -80,6 +80,7 @@ offset_bottom = 26.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_0evdr")
+theme_override_font_sizes/font_size = 50
 text = "Main Menu"
 
 [node name="WatchReplayButton" type="Button" parent="Panel"]
@@ -96,4 +97,5 @@ offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_s3s0k")
+theme_override_font_sizes/font_size = 50
 text = "Watch Replay"

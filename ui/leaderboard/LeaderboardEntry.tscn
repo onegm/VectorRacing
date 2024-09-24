@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8uo4rkuynx1h"]
 
-[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/start_page/start_page_theme.tres" id="1_j5krh"]
+[ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_j5krh"]
 [ext_resource type="Script" path="res://ui/leaderboard/leaderboard_entry.gd" id="2_el213"]
 [ext_resource type="Texture2D" uid="uid://bhrojb0y8li78" path="res://entities/player/assets/cars_sprite_sheet.png" id="2_mftim"]
 
@@ -94,7 +94,7 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Enter your name:"
 horizontal_alignment = 1
 
@@ -112,7 +112,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Submit"
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer"]
@@ -135,7 +135,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Moves :"
 horizontal_alignment = 2
 
@@ -145,12 +145,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "66"
 
 [node name="SkipButton" type="Button" parent="ColorRect"]
 layout_mode = 1
 offset_right = 8.0
 offset_bottom = 8.0
-text = "X"
+theme = ExtResource("1_j5krh")
+theme_override_font_sizes/font_size = 50
+text = " X"
 flat = true

@@ -3,17 +3,18 @@ extends Node2D
 var player : CharacterBody2D
 var velocity : Vector2 = Vector2.ZERO
 var acceleration : Vector2 = Vector2.ZERO
+var acceleration_vector_offset = Vector2.ZERO
 
-var velocity_color = Color.WHITE
-var acceleration_color = Color.CORAL
+const velocity_color = Color.WHITE
+const acceleration_color = Color.CORAL
+const resultant_vector_color = Color.AQUA
 
 const ARROW_HEAD_SCALE = Game.TILE_SIZE / 5.0
 
-@onready var vector_mode = Game.vector_mode
-
 func _ready():
-	SignalBus.vector_mode_changed.connect(func(): vector_mode = Game.vector_mode)
 	SignalBus.race_ended.connect(on_race_ended)
+	#queue_redraw()
+
 func set_player(new_player : CharacterBody2D):
 	player = new_player
 	player.acceleration_changed.connect(on_acceleration_changed)
@@ -31,26 +32,18 @@ func on_turn_ended(): set_visible(false)
 func on_race_ended(_winners, _finishers): set_visible(false)
 
 func on_acceleration_changed():
-	set_new_velocity(player.velocity)
-	set_new_acceleration(player.acceleration)
-
-func set_new_velocity(new_velocity : Vector2):
-	velocity = new_velocity
-	acceleration = Vector2.ZERO
-	queue_redraw()
-
-func set_new_acceleration(new_acceleration : Vector2):
-	acceleration = new_acceleration
+	velocity = player.velocity
+	acceleration = player.acceleration
 	queue_redraw()
 
 func _draw():
+	#draw_vector(Vector2(50, 0), velocity_color, Vector2.ONE*100)
+	if Game.vector_mode == Game.VECTOR_MODE.HEAD_TO_TAIL:
+		draw_vector(velocity + acceleration, resultant_vector_color)
+		acceleration_vector_offset = velocity
+		
 	draw_vector(velocity, velocity_color)
-	
-	var offset = Vector2.ZERO
-	if vector_mode == Game.VECTOR_MODE.HEAD_TO_TAIL:
-		draw_vector(velocity + acceleration, Color.AQUA)
-		offset = velocity
-	draw_vector(acceleration, acceleration_color, offset)
+	draw_vector(acceleration, acceleration_color, acceleration_vector_offset)
 
 	
 func draw_vector(end : Vector2, color : Color, offset : Vector2 = Vector2.ZERO):
