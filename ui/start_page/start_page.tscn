@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b05ror2ya1o1c"]
+[gd_scene load_steps=17 format=4 uid="uid://b05ror2ya1o1c"]
 
 [ext_resource type="Script" path="res://ui/start_page/start_page.gd" id="1_j63th"]
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="2_n5ykn"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhoujntmy6yfe" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Winter_details (16 x 16).png" id="5_2rw3u"]
 [ext_resource type="Texture2D" uid="uid://cxbk54fq58cnr" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Highway_water_animation (16 x 16).png" id="6_xqi0y"]
 [ext_resource type="Texture2D" uid="uid://diykj835mcwna" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Highway_water_color (16 x 16).png" id="7_ms0aq"]
+[ext_resource type="Texture2D" uid="uid://tmsthd3yhmna" path="res://ui/start_page/icons/winter_button_icon.png" id="8_mo6w1"]
+[ext_resource type="Texture2D" uid="uid://dudpxgphh6v5b" path="res://ui/start_page/icons/tail_to_tail_icon.png" id="9_hprvb"]
+[ext_resource type="Texture2D" uid="uid://dqfmtxoooxpet" path="res://ui/start_page/icons/head_to_tail_icon.png" id="9_y7nnk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ls571"]
 texture = ExtResource("4_jrek1")
@@ -61,9 +64,16 @@ tile_set = SubResource("TileSet_s7x2e")
 layout_mode = 0
 offset_left = 158.0
 offset_top = 207.0
-offset_right = 430.0
-offset_bottom = 270.0
+offset_right = 454.0
+offset_bottom = 276.0
 theme_override_font_sizes/font_size = 60
+selected = 0
+item_count = 2
+popup/item_0/text = "Tail to tail"
+popup/item_0/icon = ExtResource("9_hprvb")
+popup/item_1/text = "Head to tail"
+popup/item_1/icon = ExtResource("9_y7nnk")
+popup/item_1/id = 1
 
 [node name="NumPlayersButton" type="OptionButton" parent="."]
 layout_mode = 0
@@ -81,7 +91,7 @@ offset_right = 432.0
 offset_bottom = 430.0
 theme_override_font_sizes/font_size = 60
 
-[node name="LevelButton" type="OptionButton" parent="."]
+[node name="TrackButton" type="OptionButton" parent="."]
 layout_mode = 0
 offset_left = 725.0
 offset_top = 201.0
@@ -100,7 +110,7 @@ popup/item_1/text = "SUMMER"
 popup/item_1/icon = ExtResource("4_jrek1")
 popup/item_1/id = 1
 popup/item_2/text = "WINTER"
-popup/item_2/icon = ExtResource("5_2rw3u")
+popup/item_2/icon = ExtResource("8_mo6w1")
 popup/item_2/id = 2
 
 [node name="Title" type="Label" parent="."]

@@ -12,9 +12,7 @@ const SHAKE_DECAY : float = 10.0
 func _ready():
 	rand.randomize()
 	SignalBus.player_crashed.connect(shake)
-	SignalBus.camera_limit_rect_changed.connect(set_rect_limits)
 	SignalBus.race_ended.connect(on_race_ended)
-	set_rect_limits(Game.camera_limit_rect)
 
 func _process(delta):
 	update_position()
@@ -45,12 +43,6 @@ func get_shake_offset():
 		rand.randfn(0, current_shake_strength),
 		rand.randfn(0, current_shake_strength)		
 	)
-
-func set_rect_limits(rect : Rect2):
-	limit_left = rect.position.x as int
-	limit_right = rect.position.x + rect.size.x as int
-	limit_top = rect.position.y as int
-	limit_bottom = rect.position.y + rect.size.y as int
 
 func on_race_ended(_winners, _finishers):
 	shake_disabled = true

@@ -5,12 +5,21 @@ enum INPUT_METHOD {KEYBOARD, MOUSE}
 enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 enum TRACK {SPRING, SUMMER, WINTER}
 
-var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL
-var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD
-var num_players = 3
+var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL:
+	set(mode):
+		vector_mode = clamp(mode, 0, VECTOR_MODE.size() - 1)
+		SignalBus.vector_mode_changed.emit()
+		
+var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD:
+	set(method): input_method = clamp(method, 0, INPUT_METHOD.size()-1)
 
-var current_track : TRACK = TRACK.SPRING
-var camera_limit_rect : Rect2
+var num_players : int = 3:
+	set(num): num_players = clamp(num, 1, 3) 
+
+var current_track : TRACK = TRACK.SPRING :
+	set(track):
+		current_track = clamp(track, 0, TRACK.size()-1)
+		SignalBus.track_changed.emit()
 
 @onready var race_manager : PackedScene = preload("res://entities/race_manager/race_manager.tscn")
 var main_menu_address = "res://ui/start_page/start_page.tscn"
@@ -27,30 +36,12 @@ func config():
 		"log_level": 0
 	})
 
-func set_num_players(num : int):
-	num_players = num
-	
-func set_vector_mode(mode : VECTOR_MODE):
-	vector_mode = mode
-
 func toggle_vector_mode():
-	if vector_mode == VECTOR_MODE.TAIL_TO_TAIL:
-		set_vector_mode(VECTOR_MODE.HEAD_TO_TAIL)
-	else:
-		set_vector_mode(VECTOR_MODE.TAIL_TO_TAIL)
-	SignalBus.vector_mode_changed.emit()
+	vector_mode = wrap(vector_mode + 1, 0, 1)
 
-func set_input_method(mode : INPUT_METHOD):
-	input_method = mode
+func set_input_method(method : INPUT_METHOD):
+	input_method = method
 	SignalBus.input_method_changed.emit()
-
-func set_current_track(track : TRACK):
-	current_track = track
-	SignalBus.track_changed.emit()
-	
-func set_camera_limit_rect(rect : Rect2):
-	camera_limit_rect = rect
-	SignalBus.camera_limit_rect_changed.emit(camera_limit_rect)
 	
 func get_main_menu_scene() -> PackedScene:
 	return load(main_menu_address)
