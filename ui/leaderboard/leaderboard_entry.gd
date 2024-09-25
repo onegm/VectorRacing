@@ -20,6 +20,9 @@ func set_player(new_player : CharacterBody2D) -> void:
 
 func _process(delta: float) -> void:
 	vehicle.rotate(0.5*delta)
+	
+	if Input.is_action_just_pressed("submit") and visible:
+		on_submit_pressed()
 
 func on_text_changed():
 	if text_edit.text.length() < max_char:
@@ -29,10 +32,10 @@ func on_text_changed():
 
 func on_submit_pressed():
 	var word = text_edit.text
+	if !word: return
 	if !BadWordsFilter.is_word_ok(word):
 		word = "mark"
-	if word:
-		LeaderboardManager.save_score(word, player.moves, Game.current_track)
+	LeaderboardManager.save_score(word, player.moves, Game.current_track)
 	text_edit.clear()
 	visible = false
 	SignalBus.leaderboard_score_submitted.emit()

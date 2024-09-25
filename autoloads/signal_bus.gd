@@ -15,9 +15,6 @@ signal update_replay_velocity
 
 signal leaderboard_score_submitted
 
-signal vector_mode_changed()
-signal input_method_changed()
-
 signal track_changed()
 
 signal pause_pressed

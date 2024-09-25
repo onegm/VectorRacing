@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjch5jy0wynd7"]
+[gd_scene load_steps=16 format=3 uid="uid://bjch5jy0wynd7"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_t4riw"]
-[ext_resource type="PackedScene" uid="uid://c3nmfvrlvfdd6" path="res://entities/player/states/player_state_machine.tscn" id="2_xo0tj"]
+[ext_resource type="Script" path="res://util/state_machine/state_machine.gd" id="2_g372j"]
 [ext_resource type="Script" path="res://entities/player/states/replaying.gd" id="3_25c2x"]
+[ext_resource type="Script" path="res://entities/player/states/idle.gd" id="3_ot451"]
 [ext_resource type="Texture2D" uid="uid://bhrojb0y8li78" path="res://entities/player/assets/cars_sprite_sheet.png" id="3_tyid2"]
+[ext_resource type="Script" path="res://entities/player/states/active.gd" id="4_v4epq"]
+[ext_resource type="Script" path="res://entities/player/states/moving.gd" id="5_n7m48"]
+[ext_resource type="Script" path="res://entities/player/states/crashing.gd" id="6_h5lg7"]
+[ext_resource type="Script" path="res://entities/player/states/finished.gd" id="7_i5ls4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojieq"]
 atlas = ExtResource("3_tyid2")
@@ -42,7 +47,30 @@ radius = 4.0
 collision_layer = 2
 script = ExtResource("1_t4riw")
 
-[node name="StateMachine" parent="." instance=ExtResource("2_xo0tj")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_g372j")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("active_state")]
+script = ExtResource("3_ot451")
+active_state = NodePath("../Active")
+
+[node name="Active" type="Node" parent="StateMachine" node_paths=PackedStringArray("moving_state")]
+script = ExtResource("4_v4epq")
+moving_state = NodePath("../Moving")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "crashing_state", "finished_state")]
+script = ExtResource("5_n7m48")
+idle_state = NodePath("../Idle")
+crashing_state = NodePath("../Crashing")
+finished_state = NodePath("../Finished")
+
+[node name="Crashing" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_h5lg7")
+idle_state = NodePath("../Idle")
+
+[node name="Finished" type="Node" parent="StateMachine"]
+script = ExtResource("7_i5ls4")
 
 [node name="Replaying" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("3_25c2x")
@@ -65,5 +93,3 @@ lifetime = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qatul")
-
-[editable path="StateMachine"]

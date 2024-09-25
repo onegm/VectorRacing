@@ -6,9 +6,7 @@ enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
 enum TRACK {SPRING, SUMMER, WINTER}
 
 var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL:
-	set(mode):
-		vector_mode = clamp(mode, 0, VECTOR_MODE.size() - 1)
-		SignalBus.vector_mode_changed.emit()
+	set(mode): vector_mode = clamp(mode, 0, VECTOR_MODE.size() - 1)
 		
 var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD:
 	set(method): input_method = clamp(method, 0, INPUT_METHOD.size()-1)
@@ -38,10 +36,6 @@ func config():
 
 func toggle_vector_mode():
 	vector_mode = wrap(vector_mode + 1, 0, 1)
-
-func set_input_method(method : INPUT_METHOD):
-	input_method = method
-	SignalBus.input_method_changed.emit()
 	
 func get_main_menu_scene() -> PackedScene:
 	return load(main_menu_address)

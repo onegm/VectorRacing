@@ -6,16 +6,13 @@ extends CanvasLayer
 
 func _ready():
 	SignalBus.race_ended.connect(on_race_ended)
-	SignalBus.pause_pressed.connect(on_pause_pressed)
+	SignalBus.pause_pressed.connect(pause_menu.toggle_visibility)
 
 func on_race_ended(winners : Array, finishers : Array):
 	win_screen.set_winner(winners)
 	win_screen.make_visible()
 	
 	check_for_new_records(finishers)
-
-func on_pause_pressed() -> void:
-	pause_menu.toggle_visibility()
 
 func check_for_new_records(finishers : Array):
 	finishers.sort_custom(func(a, b): return a.moves < b.moves)

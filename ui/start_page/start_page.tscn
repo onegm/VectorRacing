@@ -103,6 +103,7 @@ theme_override_font_sizes/font_size = 60
 alignment = 1
 icon_alignment = 1
 expand_icon = true
+selected = 0
 item_count = 3
 popup/item_0/text = "SPRING"
 popup/item_0/icon = ExtResource("3_vlcgn")
