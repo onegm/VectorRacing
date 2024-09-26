@@ -25,14 +25,18 @@ func _process(delta: float) -> void:
 		on_submit_pressed()
 
 func on_text_changed():
-	if text_edit.text.length() < max_char:
+	if text_edit.text.contains("\n"):
+		text_edit.text = text_edit.text.replace("\n", "")
+	if text_edit.text.contains("\t"):
+		text_edit.text = text_edit.text.replace("\t", "")
+	if text_edit.text.length() <= max_char:
 		return
 	text_edit.text = text_edit.text.erase(max_char, max_char ** 10)
 	text_edit.set_caret_column(max_char)
 
 func on_submit_pressed():
 	var word = text_edit.text
-	if !word: return
+	if word.is_empty(): return
 	if !BadWordsFilter.is_word_ok(word):
 		word = "mark"
 	LeaderboardManager.save_score(word, player.moves, Game.current_track)
