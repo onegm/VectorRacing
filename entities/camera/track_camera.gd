@@ -1,4 +1,4 @@
-extends Camera2D
+class_name TrackCamera extends Camera2D
 
 var players : Array
 var rand = RandomNumberGenerator.new()

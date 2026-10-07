@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://l4xxnb861yyw"]
 
-[ext_resource type="Script" path="res://util/state_machine/state_machine.gd" id="1_erto8"]
-[ext_resource type="Script" path="res://entities/player/states/idle.gd" id="2_qy5xt"]
-[ext_resource type="Script" path="res://entities/player/states/active.gd" id="3_5ag6i"]
-[ext_resource type="Script" path="res://entities/player/states/moving.gd" id="4_bu152"]
-[ext_resource type="Script" path="res://entities/player/states/crashing.gd" id="5_5gqp5"]
-[ext_resource type="Script" path="res://entities/player/states/finished.gd" id="6_mbnwb"]
+[ext_resource type="Script" uid="uid://bga5b6rtkvxcg" path="res://util/state_machine/state_machine.gd" id="1_erto8"]
+[ext_resource type="Script" uid="uid://cdpefekh8wqew" path="res://entities/player/states/idle.gd" id="2_qy5xt"]
+[ext_resource type="Script" uid="uid://8sfy20aubc0d" path="res://entities/player/states/active.gd" id="3_5ag6i"]
+[ext_resource type="Script" uid="uid://17ybpu74pyju" path="res://entities/player/states/moving.gd" id="4_bu152"]
+[ext_resource type="Script" uid="uid://c5xpdwtoajxrh" path="res://entities/player/states/crashing.gd" id="5_5gqp5"]
+[ext_resource type="Script" uid="uid://vckld3uvdmtu" path="res://entities/player/states/finished.gd" id="6_mbnwb"]
 
 [node name="PlayerStateMachine" type="Node" node_paths=PackedStringArray("starting_state")]
 script = ExtResource("1_erto8")

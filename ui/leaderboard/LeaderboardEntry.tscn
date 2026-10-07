@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8uo4rkuynx1h"]
 
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_j5krh"]
-[ext_resource type="Script" path="res://ui/leaderboard/leaderboard_entry.gd" id="2_el213"]
+[ext_resource type="Script" uid="uid://cvcvg03unr2pm" path="res://ui/leaderboard/leaderboard_entry.gd" id="2_el213"]
 [ext_resource type="Texture2D" uid="uid://bhrojb0y8li78" path="res://entities/player/assets/cars_sprite_sheet.png" id="2_mftim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojieq"]

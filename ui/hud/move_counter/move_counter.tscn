@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pv5ojln4w7xj"]
 
-[ext_resource type="Script" path="res://ui/hud/move_counter/move_counter.gd" id="1_2awei"]
+[ext_resource type="Script" uid="uid://cado3u7chrdxx" path="res://ui/hud/move_counter/move_counter.gd" id="1_2awei"]
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_oaq0r"]
 
 [node name="MoveCounter" type="Control"]

@@ -4,7 +4,7 @@ class_name Track
 @onready var inner_track: Area2D = $InnerTrack
 @onready var outer_track: Area2D = $OuterTrack
 @onready var win_area : Area2D = $WinArea
-@onready var camera : Camera2D = $Camera
+@onready var camera : TrackCamera = $Camera
 
 @export var spawn_rotation : float = 0
 
@@ -25,3 +25,6 @@ func on_win_area_entered(player : CharacterBody2D):
 	
 func get_spawn_point():
 	return $SpawnPoint.global_position
+
+func camera_follow(arr : Array):
+	camera.follow(arr)

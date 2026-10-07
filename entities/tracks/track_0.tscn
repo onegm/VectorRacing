@@ -1,10 +1,10 @@
 [gd_scene load_steps=30 format=4 uid="uid://b01sq5q2ho1ii"]
 
-[ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_1gmlj"]
+[ext_resource type="Script" uid="uid://brw4hxiwpwx05" path="res://entities/tracks/track.gd" id="1_1gmlj"]
 [ext_resource type="Texture2D" uid="uid://dqbelg31ec00b" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Summer_details (16 x 16).png" id="2_ksyfy"]
 [ext_resource type="Texture2D" uid="uid://c7bn3ciyed1da" path="res://entities/tracks/assets/race_track_asset_pack/Road/straight_1.png" id="3_pclqn"]
 [ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://entities/tracks/assets/checkered line.png" id="3_ty071"]
-[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/camera_2d.tscn" id="4_novv4"]
+[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/track_camera.tscn" id="4_novv4"]
 [ext_resource type="Texture2D" uid="uid://d0siv2qonvbjn" path="res://entities/tracks/assets/race_track_asset_pack/Road/straight_2.png" id="4_rlgmu"]
 [ext_resource type="Texture2D" uid="uid://q7ffhhaj1pnc" path="res://entities/tracks/assets/race_track_asset_pack/Road/short_road.png" id="5_llrtw"]
 [ext_resource type="Texture2D" uid="uid://dbtl34tuiaigk" path="res://entities/tracks/assets/race_track_asset_pack/Road/curve_1.png" id="6_o77uv"]
@@ -233,7 +233,6 @@ collision_mask = 2
 polygon = PackedVector2Array(-298, -25, -297, -76, -293, -102, -283, -126, -267, -147, -246, -162, -222, -174, -197, -176, 283, -176, 303, -172, 326, -156, 349, -140, 363, -132, 376, -130, 399, -130, 424, -126, 449, -116, 469, -101, 485, -80, 495, -55, 499, -30, 499, -6, 494, 13, 478, 36, 462, 58, 455, 72, 452, 81, 452, 148, 449, 174, 445, 187, 438, 198, 423, 219, 402, 235, 391, 241, 378, 245, 366, 248, 352, 249, -379, 248, -405, 245, -429, 235, -450, 218, -466, 198, -477, 174, -480, 147, -479, 75, -476, 50, -466, 25, -450, 5, -429, -11, -405, -22, -380, -25)
 
 [node name="WinArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(629, 520)
 collision_mask = 2
 

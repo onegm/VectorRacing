@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8vbosqfr4k"]
 
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_ehkof"]
-[ext_resource type="Script" path="res://ui/win_screen/win_screen.gd" id="1_h3boa"]
+[ext_resource type="Script" uid="uid://c46cjs3yrwl7q" path="res://ui/win_screen/win_screen.gd" id="1_h3boa"]
 
 [sub_resource type="Theme" id="Theme_s3s0k"]
 default_font_size = 32

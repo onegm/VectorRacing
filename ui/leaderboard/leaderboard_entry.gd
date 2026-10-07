@@ -31,14 +31,14 @@ func on_text_changed():
 		text_edit.text = text_edit.text.replace("\t", "")
 	if text_edit.text.length() <= max_char:
 		return
-	text_edit.text = text_edit.text.erase(max_char, max_char ** 10)
+	text_edit.text = text_edit.text.erase(max_char, text_edit.text.length())
 	text_edit.set_caret_column(max_char)
 
 func on_submit_pressed():
 	var word = text_edit.text
 	if word.is_empty(): return
 	if !BadWordsFilter.is_word_ok(word):
-		word = "mark"
+		word = "Mark"
 	LeaderboardManager.save_score(word, player.moves, Game.current_track)
 	text_edit.clear()
 	visible = false

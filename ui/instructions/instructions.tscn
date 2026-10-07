@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://cckaxb60usjw3"]
 
-[ext_resource type="Script" path="res://ui/instructions/instructions.gd" id="1_r6qbb"]
+[ext_resource type="Script" uid="uid://b84mkiep3k1do" path="res://ui/instructions/instructions.gd" id="1_r6qbb"]
 [ext_resource type="Texture2D" uid="uid://bcus2p5rbt2ks" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Desert_details (16 x 16).png" id="3_2g6xn"]
 [ext_resource type="PackedScene" uid="uid://dtuf4uqaqntj1" path="res://ui/hud/vector_legend/vector_legend.tscn" id="3_to6s1"]
 [ext_resource type="FontFile" uid="uid://sqqrvfsg67px" path="res://fonts/Micro_5/Micro5-Regular.ttf" id="4_os8uf"]

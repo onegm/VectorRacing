@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=4 uid="uid://b01sq5q2ho1ii"]
 
-[ext_resource type="Script" path="res://entities/tracks/track.gd" id="1_ib4sm"]
+[ext_resource type="Script" uid="uid://brw4hxiwpwx05" path="res://entities/tracks/track.gd" id="1_ib4sm"]
 [ext_resource type="Texture2D" uid="uid://bcus2p5rbt2ks" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Desert_details (16 x 16).png" id="2_ymexd"]
 [ext_resource type="Texture2D" uid="uid://c7bn3ciyed1da" path="res://entities/tracks/assets/race_track_asset_pack/Road/straight_1.png" id="3_jp0x1"]
 [ext_resource type="Texture2D" uid="uid://38eaqf6jy1py" path="res://entities/tracks/assets/checkered line.png" id="3_k4oy8"]
 [ext_resource type="Texture2D" uid="uid://d0siv2qonvbjn" path="res://entities/tracks/assets/race_track_asset_pack/Road/straight_2.png" id="4_1mom1"]
-[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/camera_2d.tscn" id="4_86k65"]
+[ext_resource type="PackedScene" uid="uid://c4lqd128nol4g" path="res://entities/camera/track_camera.tscn" id="4_86k65"]
 [ext_resource type="Texture2D" uid="uid://q7ffhhaj1pnc" path="res://entities/tracks/assets/race_track_asset_pack/Road/short_road.png" id="5_66ded"]
 [ext_resource type="Texture2D" uid="uid://dbtl34tuiaigk" path="res://entities/tracks/assets/race_track_asset_pack/Road/curve_1.png" id="6_c5ush"]
 [ext_resource type="Texture2D" uid="uid://bvagx52rtc2lj" path="res://entities/tracks/assets/race_track_asset_pack/Road/chicane_1.png" id="7_gvas1"]

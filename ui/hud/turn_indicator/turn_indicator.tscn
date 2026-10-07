@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://75vmdfqoa64t"]
 
 [ext_resource type="Texture2D" uid="uid://d0knm3022pqem" path="res://ui/hud/turn_indicator/Player_arrow_indicator (8 x 8).png" id="1_3xvh4"]
-[ext_resource type="Script" path="res://ui/hud/turn_indicator/turn_indicator.gd" id="2_u0vxm"]
+[ext_resource type="Script" uid="uid://dig6gb2vsakj0" path="res://ui/hud/turn_indicator/turn_indicator.gd" id="2_u0vxm"]
 
 [sub_resource type="Animation" id="Animation_nbk2a"]
 length = 0.001
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q4rx2"]
 _data = {
-"RESET": SubResource("Animation_nbk2a"),
-"active": SubResource("Animation_1owug")
+&"RESET": SubResource("Animation_nbk2a"),
+&"active": SubResource("Animation_1owug")
 }
 
 [node name="TurnIndicator" type="Node2D"]

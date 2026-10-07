@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://dnyyf8cpt3ik6"]
 
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_4psam"]
-[ext_resource type="Script" path="res://ui/leaderboard/leaderboard.gd" id="2_un6cb"]
+[ext_resource type="Script" uid="uid://bp0ayvtj76jcc" path="res://ui/leaderboard/leaderboard.gd" id="2_un6cb"]
 [ext_resource type="Texture2D" uid="uid://bcus2p5rbt2ks" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Desert_details (16 x 16).png" id="3_yqkt2"]
 [ext_resource type="Texture2D" uid="uid://dqbelg31ec00b" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Summer_details (16 x 16).png" id="4_fs8hi"]
 [ext_resource type="Texture2D" uid="uid://dhoujntmy6yfe" path="res://entities/tracks/assets/race_track_asset_pack_2/Levels/Winter_details (16 x 16).png" id="5_rdhlk"]

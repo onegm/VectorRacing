@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://csxyvlp48nu33" path="res://ui/ui_theme.tres" id="1_2i363"]
 [ext_resource type="Texture2D" uid="uid://du8ah2lmbjntc" path="res://ui/hud/vector_legend/velocity_vector.png" id="2_chio7"]
-[ext_resource type="Script" path="res://ui/hud/vector_legend/vector_legend.gd" id="2_mcogd"]
+[ext_resource type="Script" uid="uid://rlieljkdwt7r" path="res://ui/hud/vector_legend/vector_legend.gd" id="2_mcogd"]
 
 [node name="VectorLegend" type="Control"]
 layout_mode = 3
