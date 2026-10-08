@@ -22,7 +22,7 @@ func _ready():
 	add_children()
 	connect_track_signals()
 	spawn_players()
-
+	print(players)
 	for player in players:
 		player.turn_ended.connect(on_player_turn_ended)
 	set_current_player(0)

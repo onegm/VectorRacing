@@ -58,6 +58,9 @@ func is_active():
 
 func get_moves():
 	return moves
+	
+func get_speed():
+	return velocity.length()
 
 func set_color(color : Color):
 	vehicle_color = color

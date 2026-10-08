@@ -11,7 +11,7 @@ var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL:
 var input_method : INPUT_METHOD = INPUT_METHOD.KEYBOARD:
 	set(method): input_method = clamp(method, 0, INPUT_METHOD.size()-1)
 
-var num_players : int = 3:
+var num_players : int = 2:
 	set(num): num_players = clamp(num, 1, 3) 
 
 var current_track : TRACK = TRACK.SPRING :
