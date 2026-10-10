@@ -4,3 +4,4 @@ class_name FinishedState
 func enter():
 	super.enter()
 	AudioManager.applause_sound.play()
+	parent.turn_ended.emit()
