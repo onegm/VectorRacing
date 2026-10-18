@@ -14,10 +14,10 @@ var acceleration = Vector2.ZERO
 var target = Vector2.ZERO
 var initial_state : Vector3 
 var velocity_record : Array = []
+var crashed = false
 
 signal turn_started
 signal turn_ended
-signal crashed
 signal finished
 signal moves_changed
 signal acceleration_changed
@@ -49,6 +49,9 @@ func update_velocity():
 	velocity += acceleration
 	set_acceleration(Vector2.ZERO)
 	look_at(global_position + velocity)
+
+func has_crashed():
+	crashed = true
 
 func is_in_motion():
 	return state_machine.current_state is MovingState

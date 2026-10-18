@@ -3,7 +3,8 @@ extends Node
 const TILE_SIZE = 22
 enum INPUT_METHOD {KEYBOARD, MOUSE}
 enum VECTOR_MODE {TAIL_TO_TAIL, HEAD_TO_TAIL}
-enum TRACK {SPRING, SUMMER, WINTER}
+enum TRACK {SPRING, SUMMER, WINTER, STOP_CHALLENGE}
+enum CHALLENGE {STOP}
 
 var vector_mode : VECTOR_MODE = VECTOR_MODE.TAIL_TO_TAIL:
 	set(mode): vector_mode = clamp(mode, 0, VECTOR_MODE.size() - 1)
@@ -17,7 +18,10 @@ var num_players : int = 2:
 var current_track : TRACK = TRACK.SPRING :
 	set(track):
 		current_track = clamp(track, 0, TRACK.size()-1)
-		SignalBus.track_changed.emit()
+
+var current_challenge : CHALLENGE = CHALLENGE.STOP:
+	set(challenge):
+		current_challenge = clamp(challenge, 0, CHALLENGE.size()-1)
 
 @onready var race_manager : PackedScene = preload("res://entities/race_manager/race_manager.tscn")
 var main_menu_address = "res://ui/start_page/start_page.tscn"

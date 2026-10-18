@@ -15,6 +15,4 @@ signal update_replay_velocity
 
 signal leaderboard_score_submitted
 
-signal track_changed()
-
 signal pause_pressed

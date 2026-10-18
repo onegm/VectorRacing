@@ -22,7 +22,6 @@ func _ready():
 	add_children()
 	connect_track_signals()
 	spawn_players()
-	print(players)
 	for player in players:
 		player.turn_ended.connect(on_player_turn_ended)
 	set_current_player(0)
@@ -40,11 +39,7 @@ func add_children():
 	add_child(replay_timer)
 
 func connect_track_signals():
-	track.track_exited.connect(on_track_exited)
 	track.player_won.connect(on_player_finished)
-
-func on_track_exited(crashed_player : CharacterBody2D):
-	crashed_player.crashed.emit()
 
 func on_player_finished(finished_player : CharacterBody2D):
 	finishers.append(finished_player)

@@ -12,13 +12,12 @@ var tween : Tween
 
 func set_parent(new_parent : CharacterBody2D):
 	super.set_parent(new_parent)
-	parent.crashed.connect(func(): crashed = true)
-	parent.turn_ended.connect(func(): turn_ended = true)
 	parent.finished.connect(func(): finished = true)
 
 func enter() -> void:
 	crashed = false
 	turn_ended = false
+	parent.crashed = false
 	parent.increment_moves()
 	play_sound()
 	set_motion_properties()
@@ -32,20 +31,23 @@ func set_motion_properties():
 		turn_ended = true
 		return
 	tween = create_tween()
-	tween.finished.connect(func(): turn_ended = true)
+	tween.finished.connect(end_turn)
 	tween.tween_property(parent, "global_position", parent.target, 1.0)
 
-func process_physics(delta: float) -> State:
-	if crashed:
+func end_turn():
+	turn_ended = true
+
+func process_physics(_delta: float) -> State:
+	if parent.crashed:
 		tween.kill()
 		return crashing_state
+	
+	if finished:
+		return finished_state
 	
 	if turn_ended:
 		parent.turn_ended.emit()
 		return idle_state
-		
-	if finished:
-		return finished_state
 		
 	return null
 
@@ -55,4 +57,4 @@ func exit():
 		for i in range(CrashingState.CRASH_PENALTY):
 			parent.velocity_record.append(Vector2.ZERO)
 		return
-	parent.velocity_record.append(parent.velocity if !crashed else Vector2.ZERO)
+	parent.velocity_record.append(parent.velocity)

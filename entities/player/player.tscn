@@ -88,8 +88,8 @@ z_index = -1
 rotation = -1.5708
 emitting = false
 amount = 1000
-process_material = SubResource("ParticleProcessMaterial_f5ec2")
 lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_f5ec2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qatul")

@@ -1,7 +1,7 @@
 extends RaceManager
 class_name ChallengeManager
 
-@export var challenge_scene : PackedScene = preload("res://entities/challenges/stop_challenge.tscn")
+@onready var challenge_scene : PackedScene = load("res://entities/challenges/challenge_" + str(Game.current_challenge) + ".tscn")
 
 func _ready():
 	Game.num_players = 1

@@ -16,8 +16,8 @@ func _ready():
 	outer_track.body_exited.connect(on_track_exited)
 	win_area.body_entered.connect(on_win_area_entered)
 	
-func on_track_exited(player : CharacterBody2D):
-	track_exited.emit(player)
+func on_track_exited(player : Player):
+	player.has_crashed()
 	SignalBus.player_crashed.emit()
 
 func on_win_area_entered(player : CharacterBody2D):
